@@ -5,6 +5,15 @@ import { ErrorPageComponent } from './shared/pages/error-page/error-page.compone
 const routes: Routes = [
   //Cargar sutas de auth
   {
+    path:'404',
+    component: ErrorPageComponent,
+
+  },
+  {
+    path:'',
+    loadChildren: ()=>import('./landing/landing.module').then(m=> m.LandingModule)
+  },
+  {
     path:'auth',
     loadChildren: ()=> import('./auth/auth.module').then(m => m.AuthModule)
   },
@@ -13,17 +22,10 @@ const routes: Routes = [
     loadChildren: ()=>import('./store/store.module').then(m => m.ClientModule)
   },
   {
-    path:'',
-    loadChildren: ()=>import('./landing/landing.module').then(m=> m.LandingModule)
-  },
-  {
-    path:'404',
-    component: ErrorPageComponent
-  },
-  {
     path:'**',
     redirectTo: '404'
-  }
+  },
+
 ];
 
 @NgModule({

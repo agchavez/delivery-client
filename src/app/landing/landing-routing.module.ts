@@ -14,13 +14,9 @@ const routes: Routes = [
         component:ContactComponent
       },
       {
-        path:'home',
+        path:'',
         component:HomeComponent
       },
-      {
-        path:'**',
-        redirectTo:'home'
-      }
     ]
   },
 
