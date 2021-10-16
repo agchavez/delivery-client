@@ -3,7 +3,7 @@ body {
 }
 
 .botonesNaranja {
-    background-color: DB6D0B;
+    background-color: #DB6D0B;
     color: white;
     border-radius: 2rem;
     font-size: smaller;
@@ -14,11 +14,24 @@ body {
     padding-bottom: 1%;
 }
 
+.logoD {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+}
+
 .imgCard {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
+}
+
+.ullist {}
+
+.footer {
+    background-color: black;
+    color: white;
 }
 
 .box {
@@ -27,9 +40,20 @@ body {
     background-clip: padding-box!important;
 }
 
+.btnregister {
+    margin-left: 1rem;
+    background-color: #DB6D0B;
+    border: 0;
+    color: white;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    border-radius: 0.4rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
 .flecha {
     height: 1rem;
-    padding-top: 0.3rem;
     padding-left: 0.3rem;
 }
 
@@ -40,7 +64,7 @@ body {
 }
 
 .contenedor1 {
-    background-color: EBE9E9;
+    background-color: #EBE9E9;
     margin: 0px!important;
     padding: 20%!important;
     height: 100%!important;
@@ -54,7 +78,7 @@ body {
 }
 
 .contenedor3 {
-    background-color: EBE9E9;
+    background-color: #EBE9E9;
     margin: 0px!important;
     padding-top: 15%!important;
     padding-bottom: 15%;
@@ -89,7 +113,7 @@ body {
         margin-bottom: 1rem;
     }
     .botonesNaranja {
-        background-color: DB6D0B;
+        background-color: #DB6D0B;
         color: white;
         border-radius: 2rem;
         font-size: smaller;
@@ -108,7 +132,7 @@ body {
 
 @media (min-width:480px) {
     .botonesNaranja {
-        background-color: DB6D0B;
+        background-color: #DB6D0B;
         color: white;
         border-radius: 2rem;
         font-size: smaller;
