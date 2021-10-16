@@ -1,0 +1,139 @@
+body {
+    margin: 0px;
+}
+
+.botonesNaranja {
+    background-color: DB6D0B;
+    color: white;
+    border-radius: 2rem;
+    font-size: smaller;
+    padding-left: 10%;
+    padding-right: 10%;
+    border: 0;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.imgCard {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+.box {
+    box-sizing: border-box!important;
+    border: 2rem solid transparent!important;
+    background-clip: padding-box!important;
+}
+
+.flecha {
+    height: 1rem;
+    padding-top: 0.3rem;
+    padding-left: 0.3rem;
+}
+
+.cardland {
+    width: auto;
+    border-radius: 1.5rem!important;
+    box-shadow: 0px 1px 0px 0px hsl(240deg 7% 62% / 93%);
+}
+
+.contenedor1 {
+    background-color: EBE9E9;
+    margin: 0px!important;
+    padding: 20%!important;
+    height: 100%!important;
+}
+
+.contenedor2 {
+    background-color: white;
+    margin: 0px!important;
+    padding: 20%!important;
+    height: 100%!important;
+}
+
+.contenedor3 {
+    background-color: EBE9E9;
+    margin: 0px!important;
+    padding-top: 15%!important;
+    padding-bottom: 15%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.contenedor4 {
+    background-color: white;
+    margin: 0px!important;
+    padding: 20%!important;
+    height: auto!important;
+}
+
+@media(max-width:480px) {
+    .image {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .text {
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+    .img1 {
+        height: auto;
+        width: auto;
+        margin-bottom: 1rem;
+    }
+    .img2 {
+        height: auto;
+        width: auto;
+        margin-bottom: 1rem;
+    }
+    .botonesNaranja {
+        background-color: DB6D0B;
+        color: white;
+        border-radius: 2rem;
+        font-size: smaller;
+        padding-left: 10%;
+        padding-right: 10%;
+        border: 0;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .motoristasbtn {
+        text-align: center;
+    }
+}
+
+@media (min-width:480px) {
+    .botonesNaranja {
+        background-color: DB6D0B;
+        color: white;
+        border-radius: 2rem;
+        font-size: smaller;
+        padding-left: 10%;
+        padding-right: 10%;
+        border: 0;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+    .image {
+        flex: 0 0 50%;
+        max-width: 50%
+    }
+    .text {
+        flex: 0 0 50%;
+        max-width: 50%
+    }
+    .img1 {
+        height: auto;
+        width: auto;
+        padding-left: 2rem;
+    }
+    .img2 {
+        height: auto;
+        width: auto;
+        padding-right: 2rem;
+    }
+}
