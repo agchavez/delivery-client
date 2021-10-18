@@ -102,4 +102,7 @@
     .container{
       margin-top: 0px;
     }
+    .form-check{
+      width: 70%;
+    }
 }
