@@ -54,4 +54,8 @@ footer {
     margin: auto;
     margin-top: 20px;
   }
+  footer {
+    position: relative;
+    bottom: 0;
+  }
 }

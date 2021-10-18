@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.form-check-input:checked {
+  background-color: black !important;
+  border-color: black !important;
+}
+
+.form-check-input:focus{
+  box-shadow: none !important;
+}
+.form-check-input:active{
+  box-shadow: none;
+}
