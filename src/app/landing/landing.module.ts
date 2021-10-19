@@ -11,7 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MainComponent } from './pages/main/main.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 
 
@@ -27,7 +27,8 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     LandingRoutingModule,
     FontAwesomeModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports: [
     FooterComponent

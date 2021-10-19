@@ -2,6 +2,7 @@
   background-color: #DB6D0B;
   border-radius: 12px;
   text-align: center;
+  margin: auto;
   color: white;
   width: 520px;
   height: 618px;
@@ -26,6 +27,7 @@
   color: #DB6D0B;
   font-weight: bold;
   font-size: 48px;
+  width: 100%;
 }
 .form-check{
   text-align: initial;
@@ -54,7 +56,7 @@
 .form-control{
   border: none;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.486);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -99,7 +101,9 @@
   border-radius: 12px;
   height: 47px;
 }
-
+.container{
+  margin-bottom: 135px;
+}
 
 @media only screen and (max-width: 450px) {
     .container-info{
@@ -114,5 +118,13 @@
     }
     .form-check{
       width: 70%;
+    }
+    .title-login{
+      width: 100%;
+      text-align: center;
+      font-size: 40px;
+    }
+    .container{
+      margin-bottom: auto;
     }
 }
