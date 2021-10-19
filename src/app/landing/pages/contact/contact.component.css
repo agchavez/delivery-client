@@ -1,0 +1,49 @@
+@media(max-width:480px) {
+    .containerG {
+        height: auto!important;
+    }
+}
+
+.containerG {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 77vh;
+    align-items: center;
+}
+
+.containerMensaje {
+    background-color: transparent;
+    padding: 2rem;
+    border-radius: 1rem;
+    color: black;
+    height: 50%;
+}
+
+.enviar {
+    margin-left: 1rem;
+    background-color: #DB6D0B;
+    border: 0;
+    color: white;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    border-radius: 0.4rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    width: 200px;
+}
+
+.containerNaranja {
+    background-color: #DB6D0B;
+    padding: 2rem;
+    border-radius: 1rem;
+    color: white;
+    height: 50%;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.486);
+    font-size: 24px;
+    font-weight: 400;
+}
