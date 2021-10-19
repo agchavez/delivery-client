@@ -9,6 +9,7 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { VerifiedComponent } from './pages/verified/verified.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MaterialModule } from '../material/material.module';
     LoginComponent,
     RegisterComponent,
     MainComponent,
-    NavBarComponent
+    NavBarComponent,
+    VerifiedComponent
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidatorService } from '../../../shared/service/validator.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
