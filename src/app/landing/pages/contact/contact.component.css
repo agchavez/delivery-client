@@ -1,6 +1,8 @@
 @media(max-width:480px) {
     .containerG {
         height: auto!important;
+        display: flex!important;
+        flex-direction: column-reverse!important;
     }
 }
 
