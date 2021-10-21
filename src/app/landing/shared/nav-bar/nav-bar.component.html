@@ -1,5 +1,5 @@
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: white;">
+    <nav class=" navbar-expand-lg navbar-light bg-light shadow-sm navbar" style="background-color: white;">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-left: auto;font-size: larger" >
               <li class="nav-item" routerLinkActive = "active">
-                  <a class="nav-link"   [routerLink] = "['']">Inicio </a>
+                  <a class="nav-link"   [routerLink] = "['/']">Inicio </a>
               </li>
               <li class="nav-item" routerLinkActive = "active">
                   <a class="nav-link"   [routerLink] = "['/contact']">Contacto </a>
@@ -24,10 +24,9 @@
                   <a class="nav-link">Más<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="flecha svg-inline--fa fa-angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"></path></svg></a>
               </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <button  mat-raised-button  class="login-btn" [routerLink]="['/auth/login']">Iniciar Sesión</button>
+            <button  mat-raised-button  class="login-btn" [routerLink]="['auth/login']">Iniciar Sesión</button>
 
-              <button class=" my-2 my-sm-0 btnregister" mat-raised-button [routerLink]="['/auth/register']">Registrate</button>
-          </form>
+              <button class=" my-2 my-sm-0 btnregister" mat-raised-button [routerLink]="['auth/register']">Registrate</button>
+
       </div>
   </nav>

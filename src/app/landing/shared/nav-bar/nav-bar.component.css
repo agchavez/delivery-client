@@ -11,6 +11,13 @@
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
 }
+.navbar{
+  background-color: white !important;
+
+}
+.bg-light{
+  box-shadow: grey !important;
+}
 .login-btn{
   width: 150px;
   height: 40px;
