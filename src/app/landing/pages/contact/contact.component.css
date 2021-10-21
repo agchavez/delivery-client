@@ -12,6 +12,7 @@
     justify-content: center;
     height: 77vh;
     align-items: center;
+    margin-block-end: auto;
 }
 
 .containerMensaje {
