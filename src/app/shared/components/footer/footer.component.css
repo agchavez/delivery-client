@@ -1,0 +1,61 @@
+.social-netword{
+  display: flex;
+  font-size: 20px;
+}
+
+.conteiner-content{
+  display: flex;
+  margin: auto;
+  text-align: center;
+  width: 60%;
+
+
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+.page-footer{
+
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 100px;
+  padding: 20px;
+}
+
+.ms-10{
+  margin-left: 45%;
+}
+.title{
+
+  display: flex;
+}
+
+@media only screen and (max-width: 450px) {
+  .conteiner-content{
+    display: block;
+    width: 100%;
+  }
+  .page-footer{
+    width: 100vw !important;
+    height: 140px;
+    padding: 5px;
+  }
+  .social-netword{
+    margin: auto;
+    width: 80%;
+  }
+  .title{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+  }
+  footer {
+    position: inherit;
+    bottom: 0vh;
+  }
+}
