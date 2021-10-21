@@ -1,5 +1,6 @@
-<div class="containerG row">
-    <div class="col-xl-3 col-sm-12" style="width: auto;">
+<div class="container">
+  <div class="containerG row">
+    <div class="col-lg-6 col-sm-12 h-80 mb-5" style="width: auto;">
 
         <div class="containerNaranja">
 
@@ -26,7 +27,7 @@
         </div>
     </div>
 
-    <div class="col-xl-4 col-sm-12" style="width: auto;">
+    <div class="col-lg-6 col-sm-12 h-80" style="width: auto;">
         <div class="containerMensaje">
 
             <h5 style="text-align: center;">Envianos un mensaje</h5>
@@ -34,24 +35,27 @@
 
             <div class="form-content">
                 <form action="" autocomplete="off">
-                    <div style="display: flex;">
-                        <div class="">
+                    <div class="row ">
+                        <div class="mt-5 col-sm-12 col-lg-6">
                             <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
 
                         </div>
-                        <div class="" style="margin-left:1rem;">
+                        <div class="mt-5 col-sm-12 col-lg-6" >
                             <input type="text" class="form-control" formControlName="apellido" placeholder="Apellido">
                             <div class="w-100 text-start p-1">
                             </div>
 
                         </div>
                     </div>
-                    <div class="">
+                    <div  class="mt-5">
                         <input type="text" class="form-control" formControlName="correoo" placeholder="correo electrónico">
-                        <textarea name="" class="form-control" id="" cols="10" rows="3" formControlName="comentario" placeholder="enviar un comentario"></textarea>
 
+                      </div>
+                      <div class="mt-5">
+
+                        <textarea name="" class="form-control" id="" cols="10" rows="3" formControlName="comentario" placeholder="enviar un comentario"></textarea>
                     </div>
-                    <div style="text-align: end;" class="mt-4">
+                    <div class="container-btn mt-5">
 
                         <button type="submit" mat-raised-button class="enviar">Enviar</button>
                     </div>
@@ -59,4 +63,6 @@
             </div>
         </div>
     </div>
+</div>
+
 </div>

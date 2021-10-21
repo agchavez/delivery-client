@@ -29,6 +29,7 @@
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.486);
   font-size: 20px;
   font-weight: 400;
+  border-radius: 0px;
 }
 
 .form-control:hover{
@@ -52,5 +53,21 @@
 .ng-star-inserted{
   color:white;
 }
+.input-group-text{
+  border-radius: 0px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.486);
+  font-size: 20px;
+  font-weight: 400;
+
+}
+
+@media (max-width:480px) {
+.btn-basic{
+  width: 100%;
+}
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

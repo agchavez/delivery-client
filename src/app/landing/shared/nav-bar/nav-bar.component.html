@@ -3,15 +3,15 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
-      <img src="../../../../assets/Cliente-landing/logo2.png" alt="" style="height: 50px;">
+      <img src="../../../../assets/Cliente-landing/logo2.png" class="img-logo" alt="" style="height: 50px;">
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-left: auto;font-size: larger" >
-              <li class="nav-item active" >
-                  <a class="nav-link"  routerLinkActive = "active" routerLink = "">Inicio </a>
+              <li class="nav-item" routerLinkActive = "active">
+                  <a class="nav-link"   [routerLink] = "['']">Inicio </a>
               </li>
-              <li class="nav-item" >
-                  <a class="nav-link"  routerLinkActive = "active" routerLink = "/contact">Contacto </a>
+              <li class="nav-item" routerLinkActive = "active">
+                  <a class="nav-link"   [routerLink] = "['/contact']">Contacto </a>
               </li>
               <li class="nav-item">
                   <a class="nav-link">Sobre nosotros</a>
@@ -25,8 +25,9 @@
               </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
-              <h5 class="mr-sm-2 " routerLink="./auth/login" >Iniciar Sesión</h5>
-              <button class=" my-2 my-sm-0 btnregister" type="submit" routerLink="./auth/register">Registrate</button>
+            <button  mat-raised-button  class="login-btn" [routerLink]="['/auth/login']">Iniciar Sesión</button>
+
+              <button class=" my-2 my-sm-0 btnregister" mat-raised-button [routerLink]="['/auth/register']">Registrate</button>
           </form>
       </div>
   </nav>
