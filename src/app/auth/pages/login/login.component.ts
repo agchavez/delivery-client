@@ -26,6 +26,11 @@ export class LoginComponent implements OnInit {
             this.myForm.get(camp)?.touched;
   }
   login(){
+    this.myForm.markAllAsTouched();
+    if (this.myForm.invalid) {
+      return
+
+    }
 
   }
 }

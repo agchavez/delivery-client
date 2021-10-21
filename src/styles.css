@@ -25,6 +25,7 @@
   stroke:#DB6D0B !important;
 }
 .form-control{
+  border-radius: 0px;
   border: none;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.486);
   font-size: 20px;
