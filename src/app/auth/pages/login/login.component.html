@@ -1,2 +1,84 @@
 
-<h1>Login</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-6 col-sm-12 content mt-3">
+      <h1 class="title-login">Inicia Sesion</h1>
+      <button type="button" mat-raised-button class="btn-google mt-3"><img src="../../../../assets/google-icon.png" height="26" > Continuar con google</button>
+      <div class="mt-3">
+        <p>o</p>
+      </div>
+
+      <div class="form-content" >
+          <form action="" autocomplete="off" [formGroup]= "myForm" (ngSubmit)="login()">
+            <div class="p-3">
+               <input type="email"
+                   [ngClass]="{'invalid-form': validatorCamp('email')}"
+                   class="form-control"
+                   formControlName ="email"
+                   placeholder="Escribe tu correo"
+                   >
+                   <div class="w-100 text-start p-1">
+
+                     <span  class="form-text text-danger"
+                            *ngIf="validatorCamp('email')">
+                            El correo es requerido
+                      </span>
+                   </div>
+            </div>
+            <div class="p-3 m-1s">
+              <input type="password"
+                  [ngClass]="{'invalid-form': validatorCamp('password')}"
+                  class="form-control"
+                  formControlName="password"
+                  placeholder="Escribe tu contraseña"
+                  >
+                  <div class="w-100 text-start p-1">
+                     <span *ngIf="validatorCamp('password')"
+                        class="form-text text-danger">
+                        La contraseña es requerida
+                  </span>
+                  </div>
+
+           </div>
+
+           <div class="form-check mt-5 ">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label mt-1" for="flexCheckDefault">
+              Recordar usuario
+            </label>
+          </div>
+          <div class="mt-2">
+
+            <button type="submit" mat-raised-button class="btn-basic mt-5">Entrar</button>
+          </div>
+
+          </form>
+          <div class="text-register mt-3" >
+            <p>¿Olvidaste tu contraseña?</p>
+          </div>
+      </div>
+  </div>
+    <div class="col-xl-6 col-sm-12 container-info">
+      <div class="row">
+
+        <div class="container-img col-12">
+          <img src="../../../../assets/login-img.png" class="img" width="400">
+        </div>
+        <div class="col-12">
+          <div class="title">
+              <h2>Hey, aun no tienes cuenta?</h2>
+          </div>
+          <div class="sub-title">
+            <p>Registrate para disfrutar
+              de nuestros servicios</p>
+          </div>
+          <div>
+            <button type="button" mat-raised-button class="btn-outline-light" [routerLink]="['/auth/register']">Ir a registrarme</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
