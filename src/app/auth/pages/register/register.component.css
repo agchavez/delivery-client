@@ -5,6 +5,11 @@
     }
 }
 
+.contCuentaExiste {
+    margin-top: auto!important;
+    margin-bottom: auto!important;
+}
+
 .input input {
     margin: 2rem 0;
 }

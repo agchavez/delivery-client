@@ -10,12 +10,12 @@
                 <form action="" autocomplete="off">
                     <div style="display: flex;">
                         <div class="input" style="margin-bottom: 0px;">
-                            <input type="text" class="form-control" formControlName="nombre" placeholder="Identidad">
-                            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
-                            <input type="text" class="form-control" formControlName="nombre" placeholder="Apellido">
-                            <input type="text" class="form-control" formControlName="nombre" placeholder="telefono">
-                            <input type="text" class="form-control" formControlName="nombre" placeholder="email">
-                            <input type="text" class="form-control" formControlName="nombre" style="margin-bottom: 0px;" placeholder="contraseña">
+                            <input type="text" class="form-control" placeholder="Identidad">
+                            <input type="text" class="form-control" placeholder="Nombre">
+                            <input type="text" class="form-control" placeholder="Apellido">
+                            <input type="text" class="form-control" placeholder="telefono">
+                            <input type="text" class="form-control" placeholder="email">
+                            <input type="text" class="form-control" style="margin-bottom: 0px;" placeholder="contraseña">
 
 
                         </div>
@@ -28,8 +28,7 @@
             </div>
         </div>
     </div>
-
-    <div class="col-xl-3 col-sm-12 " style="width: auto; margin-left: 5rem; ">
+    <div class="col-xl-3 col-sm-12 contCuentaExiste" style="width: auto; margin-left: 5rem; ">
 
         <div class="containerNaranja ">
 
@@ -44,7 +43,7 @@
                         Inicia Sesión para acceder a los servicios que te ofrecemos
                     </div>
                     <div style="text-align: center; margin-top: 1rem;">
-                        <button type="submit" mat-raised-button id="iniciarS" class="enviar" style="margin-top: 0px;">Registrarme</button>
+                        <button type="button" mat-raised-button id="iniciarS" class="enviar btn-outline-light" [routerLink]="['/auth/login']" style="margin-top: 0px;">Iniciar Sesión</button>
 
                     </div>
                 </div>
