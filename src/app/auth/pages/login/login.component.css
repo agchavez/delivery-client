@@ -8,7 +8,7 @@
   height: 618px;
 }
 .container{
-  margin-top: 120px;
+  margin-top: 72px;
 }
 .content{
   text-align: center;
@@ -111,6 +111,7 @@
     }
     .container{
       margin-top: 0px;
+      margin-bottom: auto;
     }
     .form-check{
       width: 70%;
@@ -120,7 +121,9 @@
       text-align: center;
       font-size: 40px;
     }
-    .container{
-      margin-bottom: auto;
+
+
+    .content{
+        padding: 40px;
     }
 }

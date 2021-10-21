@@ -9,6 +9,7 @@ import { ValidatorService } from '../../../shared/service/validator.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  show:boolean = false;
   myForm:FormGroup = this.fb.group({
     email:['',[Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
     password:['',[Validators.required, Validators.minLength(6)]]
@@ -19,6 +20,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log("login");
+
   }
 
   validatorCamp(camp:string){
@@ -32,5 +35,9 @@ export class LoginComponent implements OnInit {
 
     }
 
+  }
+
+  showPass(){
+    this.show = !this.show
   }
 }
