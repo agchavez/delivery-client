@@ -1,0 +1,16 @@
+.btnregister {
+    margin-left: 1rem;
+    background-color: #DB6D0B;
+    border: 0;
+    color: white;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    border-radius: 0.4rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.flecha {
+    height: 1rem;
+    padding-left: 0.3rem;
+}
