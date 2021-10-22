@@ -21,7 +21,9 @@
   margin: auto;
   height: 80vh;
 }
-.btn{
+.btn-next{
+  width: 100px;
+  color: white !important;
   background-color: #DB6D0B;
 }
 .title-login{
@@ -33,11 +35,19 @@
 @media only screen and (max-width: 450px) {
   .row{
     width: 100vw;
+    height: auto;
   }
   .title-login{
     font-size: 28px;
   }
   .content{
     width: auto;
+    padding: auto;
+    padding-bottom: 10px;
+  }
+
+  .container{
+    padding: 0px;
+
   }
 }
