@@ -64,7 +64,16 @@
   font-weight: 400;
 
 }
-
+.text-orange{
+  color: #DB6D0B;
+  cursor: pointer;
+}
+.ng-star-inserted {
+  color: black !important;
+}
+.mat-vertical-stepper-header .mat-step-icon {
+  background-color: #DB6D0B;
+}
 @media (max-width:480px) {
 .btn-basic{
   width: 100%;
@@ -72,4 +81,4 @@
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Inter", sans-serif; }

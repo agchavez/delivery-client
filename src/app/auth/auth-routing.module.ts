@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { MainComponent } from './pages/main/main.component';
 import { VerifiedComponent } from './pages/verified/verified.component';
+import { ForgotComponent } from './pages/forgot/forgot.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       {path:'login', component:LoginComponent},
       {path:'register', component: RegisterComponent},
       {path:'verified', component: VerifiedComponent},
+      {path:'forgot-password', component: ForgotComponent},
       {path:'**', redirectTo: 'login'}
   ]}
 
