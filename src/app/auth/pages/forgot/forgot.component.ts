@@ -1,8 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatHorizontalStepper, MatStepper } from '@angular/material/stepper';
+import {  MatStepper } from '@angular/material/stepper';
 import { Router } from '@angular/router';
+import { AlertType, ColorAlert, NameAlert } from 'src/app/shared/interfaces/alert.interface';
 import { ValidatorService } from '../../../shared/service/validator.service';
+
+import {MatDialog} from '@angular/material/dialog';
+import { AlertComponent } from '../../../shared/components/alert/alert.component';
+
+import { faCheckCircle, faTimesCircle, faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-forgot',
@@ -10,7 +17,18 @@ import { ValidatorService } from '../../../shared/service/validator.service';
   styleUrls: ['./forgot.component.css']
 })
 export class ForgotComponent implements OnInit {
+
+
+  alertShow:boolean = false;
+  alert:AlertType={
+    color: ColorAlert.success,
+    icon: faCheckCircle,
+    name:NameAlert.success,
+    msj:"Usuario creado"
+  };
+
   @ViewChild('stepper') stepper!: MatStepper;
+  res:string = "hola";
   firstFormGroup: FormGroup = this._formBuilder.group({
     email: ['', [Validators.required, Validators.pattern(this._vs.emailPattern)]]
   });
@@ -34,10 +52,13 @@ export class ForgotComponent implements OnInit {
   });
 
 
+
   constructor(
     private _formBuilder : FormBuilder,
+    public dialog        : MatDialog,
     private _vs          : ValidatorService,
     private _router      : Router) {
+
    }
 
    ngOnInit(): void {
@@ -45,7 +66,15 @@ export class ForgotComponent implements OnInit {
   }
 
   sendEmail(){
+
+
+    this.dialog.open(AlertComponent,{
+      hasBackdrop: false,
+      data: this.alert
+    });
     this.firstFormGroup.markAllAsTouched();
+
+    this.alertShow = true;
     if (this.firstFormGroup.invalid) {
       return
     }
@@ -70,6 +99,8 @@ export class ForgotComponent implements OnInit {
   }
 
   changePassword(){
+
+    //TODO: Validar campos
     this._router.navigate(['/auth/login']);
   }
 

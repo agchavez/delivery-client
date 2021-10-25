@@ -1,8 +1,8 @@
+
 <div class="container">
   <div class="row">
 
     <div class="col-12 content animate__animated animate__fadeIn">
-
       <h1 class="title-login">Restablecer contraseña</h1>
       <mat-stepper orientation="vertical" [linear]="true" #stepper>
       <mat-step [editable]="false" [stepControl]="lastFormGroup" >
@@ -31,7 +31,7 @@
             </div>
             <button class="mt-3 btn-next" (click)="sendEmail()" mat-raised-button >Enviar</button>
             <div class="mt-3">
-                <p>¿No tienes cuenta? <span class="text-orange">Registrate</span></p>
+                <p>¿No tienes cuenta? <span class="text-orange" [routerLink]="['../register']">Registrate</span></p>
               </div>
 
           </ng-template>
@@ -60,7 +60,7 @@
             </div>
             <button class="mt-3 btn-next" mat-raised-button (click)="verifiedCode()" >Verificar</button>
             <div class="mt-3">
-                <p>¿No recibiste el codigo? <span class="text-orange">Reenviar</span></p>
+                <p>¿No recibiste el codigo? <span class="text-orange" >Reenviar</span></p>
               </div>
           </ng-template>
         </mat-step>

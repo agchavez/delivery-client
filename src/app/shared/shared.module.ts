@@ -9,12 +9,14 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { SharedRoutingModule } from './shared-routing.module';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 @NgModule({
   declarations: [
     ErrorPageComponent,
-    FooterComponent
+    FooterComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   exports: [
     FooterComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    AlertComponent
   ]
 })
 export class SharedModule {

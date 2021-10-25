@@ -33,6 +33,9 @@
   font-weight: 400;
   border-radius: 0px;
 }
+.mat-dialog-container{
+  display: contents !important;
+}
 
 .form-control:hover{
   background-color: white;
@@ -69,7 +72,7 @@
   cursor: pointer;
 }
 .ng-star-inserted {
-  color: black !important;
+  color: black;
 }
 .mat-vertical-stepper-header .mat-step-icon {
   background-color: #DB6D0B;
