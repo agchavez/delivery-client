@@ -15,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { VerifiedComponent } from './pages/verified/verified.component';
+import { ForgotComponent } from './pages/forgot/forgot.component';
 
 
 
@@ -24,7 +25,8 @@ import { VerifiedComponent } from './pages/verified/verified.component';
     RegisterComponent,
     MainComponent,
     NavBarComponent,
-    VerifiedComponent
+    VerifiedComponent,
+    ForgotComponent
   ],
   imports: [
     CommonModule,
