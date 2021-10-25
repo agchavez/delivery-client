@@ -39,6 +39,9 @@
     height: 15vh;
 
   }
+  .container-close{
+      height: 30%;
+  }
   .container{
     width: 95vw;
 

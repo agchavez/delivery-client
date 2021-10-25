@@ -8,6 +8,8 @@ import { AlertType, ColorAlert, NameAlert } from '../../../shared/interfaces/ale
 
 import { faCheckCircle, faTimesCircle, faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +26,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb:FormBuilder,
     private validatorService:ValidatorService,
-    public dialog        : MatDialog,
+    public  dialog        : MatDialog,
+    private router:Router,
+    private auth  : AuthService
   ) { }
 
   ngOnInit(): void {
@@ -40,31 +44,44 @@ export class LoginComponent implements OnInit {
     this.myForm.markAllAsTouched();
     if (this.myForm.invalid) {
       this.alert = {
-        name: NameAlert.warnig,
-        icon: faExclamationCircle,
+        name: NameAlert.error,
+        icon: faTimesCircle,
         msj:"Datos requeridos",
-        color: ColorAlert.warnig
+        color: ColorAlert.error
       }
-      this.dialog.open(AlertComponent,{
-        hasBackdrop: false,
-        data: this.alert
-      });
+      this.openDialog();
       return
 
     }
+    const {email, password} = this.myForm.value;
 
-    //TODO:El usuario no esta registrado
-    this.alert = {
-      name: NameAlert.info,
-      icon: faQuestionCircle,
-      msj:"El usuario no existe",
-      color: ColorAlert.info
-    }
+    this.auth.login(email, password)
+    .subscribe( resp => {
+      if (resp) {
+          //TODO: login exitoso
+          this.router.navigateByUrl('/store')
+        }else{
+          //TODO:El usuario no esta registrado
+            this.alert = {
+              name: NameAlert.error,
+              icon: faTimesCircle,
+              msj:"Correo o contraseña incorrectos",
+              color: ColorAlert.error
+            }
+            this.openDialog();
+
+        }
+      });
+
+
+
+
+  }
+  openDialog(){
     this.dialog.open(AlertComponent,{
       hasBackdrop: false,
       data: this.alert
     });
-
   }
 
   showPass(){
