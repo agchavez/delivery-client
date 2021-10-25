@@ -57,9 +57,10 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(email, password)
     .subscribe( resp => {
-      if (resp) {
+      if (resp === true) {
           //TODO: login exitoso
-          this.router.navigateByUrl('/store')
+          this.router.navigate(['/store']);
+
         }else{
           //TODO:El usuario no esta registrado
             this.alert = {

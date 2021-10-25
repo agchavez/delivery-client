@@ -29,9 +29,9 @@ export class AuthService {
     return this.http.post<LoginResponse>(url,body)
               .pipe(
                 tap( resp => {
+
                   if (resp.ok) {
                     localStorage.setItem('token', resp.token!);
-                    this._client = resp.client!
                   }
                 }),
                 map( resp => resp.ok),
@@ -48,11 +48,16 @@ export class AuthService {
     return this.http.get<LoginResponse>(url, { headers })
           .pipe(
             map(resp =>{
+              if (resp.ok) {
+                localStorage.setItem('token', resp.token!);
+                this._client = resp.client!
+                console.log("token set");
 
+              }
                return resp.ok
-            },
+            }),
             catchError(err => of(false))
-            )
+
           )
   }
 }

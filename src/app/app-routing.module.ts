@@ -11,18 +11,18 @@ const routes: Routes = [
 
   },
   {
+    path:'store',
+    loadChildren: ()=>import('./store/store.module').then(m=>m.StoreModule),
+    canActivate: [ValidateTokenGuard],
+    canLoad: [ValidateTokenGuard]
+  },
+  {
     path:'',
     loadChildren: ()=>import('./landing/landing.module').then(m=> m.LandingModule)
   },
   {
     path:'auth',
     loadChildren: ()=> import('./auth/auth.module').then(m => m.AuthModule)
-  },
-  {
-    path:'store',
-    loadChildren: ()=>import('./store/store.module').then(m => m.ClientModule),
-    canActivate: [ValidateTokenGuard],
-    canLoad: [ValidateTokenGuard]
   },
   {
     path:'**',
