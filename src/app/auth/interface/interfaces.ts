@@ -1,5 +1,6 @@
 export interface LoginResponse{
   ok      : boolean;
+  verified? : boolean;
   msj     : string;
   client? : Client;
   token?  : string;

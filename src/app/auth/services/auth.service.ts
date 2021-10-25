@@ -34,8 +34,20 @@ export class AuthService {
                     localStorage.setItem('token', resp.token!);
                   }
                 }),
-                map( resp => resp.ok),
-                catchError( err => of(false))
+                map( resp => {return {ok :resp.ok, verified: true}}),
+                catchError( err => {
+
+                  const verified:boolean  = err.error;
+                    if (verified!= undefined) {
+                      return of({
+                        ok: false,
+                        verified: false
+                      })
+
+                    }
+
+                    return of({ok: false, verified: false})}
+                  )
               );
   }
 
