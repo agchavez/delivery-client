@@ -18,6 +18,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   show:boolean = false;
+  laoding:boolean = false;
+
   alert!:AlertType;
   myForm:FormGroup = this.fb.group({
     email:['',[Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
@@ -41,13 +43,14 @@ export class LoginComponent implements OnInit {
             this.myForm.get(camp)?.touched;
   }
   login(){
+    this.laoding = true;
     this.myForm.markAllAsTouched();
     if (this.myForm.invalid) {
       this.alert = {
-        name: NameAlert.error,
-        icon: faTimesCircle,
+        name: NameAlert.warnig,
+        icon: faExclamationCircle,
         msj:"Datos requeridos",
-        color: ColorAlert.error
+        color: ColorAlert.warnig
       }
       this.openDialog();
       return
@@ -57,12 +60,22 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(email, password)
     .subscribe( resp => {
+      console.log(resp);
+
       if (resp.ok === true) {
           //TODO: login exitoso
           this.router.navigate(['/store']);
 
       }
       else if (resp.verified === false ) {
+        //TODO:Correo electronico no verificado
+        this.alert = {
+          name: NameAlert.info,
+          icon: faQuestionCircle,
+          msj:"Correo no verificado",
+          color: ColorAlert.info
+        }
+        this.openDialog();
           this.router.navigateByUrl('/auth/verified')
       }
       else{
@@ -78,10 +91,7 @@ export class LoginComponent implements OnInit {
 
         }
       });
-
-
-
-
+  this.laoding = false;
   }
   openDialog(){
     this.dialog.open(AlertComponent,{

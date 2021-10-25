@@ -34,19 +34,24 @@ export class AuthService {
                     localStorage.setItem('token', resp.token!);
                   }
                 }),
-                map( resp => {return {ok :resp.ok, verified: true}}),
+                map( resp => {
+                  localStorage.removeItem('email-verfied');
+                  return {ok :resp.ok, verified: true
+                  }}),
                 catchError( err => {
 
-                  const verified:boolean  = err.error;
-                    if (verified!= undefined) {
+                  const temp:any  = err.error;
+
+                  if (temp.verified != undefined) {
+                      localStorage.setItem('email-verfied', email);
                       return of({
                         ok: false,
                         verified: false
-                      })
+                      });
 
                     }
 
-                    return of({ok: false, verified: false})}
+                    return of({ok: false, verified: undefined})}
                   )
               );
   }
@@ -62,8 +67,7 @@ export class AuthService {
             map(resp =>{
               if (resp.ok) {
                 localStorage.setItem('token', resp.token!);
-                this._client = resp.client!
-                console.log("token set");
+                this._client = resp.client!;
 
               }
                return resp.ok
@@ -72,4 +76,37 @@ export class AuthService {
 
           )
   }
+  validateEmail(){
+    const email = localStorage.getItem('email-verfied');
+    if(email){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  //TODO:Verificar codigo de verificacion del usuario
+  verifiedCode(code:number){
+    const email = localStorage.getItem('email-verfied');
+    const url = `${this.baseUrl}/client/check/code`
+    const body = {
+      code, email
+    }
+    return this.http.put<LoginResponse>(url, body)
+      .pipe(
+        map(  resp => {
+          if (resp.ok) {
+            localStorage.removeItem('email-verfied');
+          }
+          return {ok:true, msj:resp.msj}
+        }
+        ),
+        catchError(err => of({ok: err.error.ok ,msj: err.error.msj }))
+      )
+    ;
+
+
+  }
+
+
 }

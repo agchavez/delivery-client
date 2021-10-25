@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+
+import { Router } from '@angular/router';
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
+import { AlertType, ColorAlert, NameAlert } from 'src/app/shared/interfaces/alert.interface';
 import { ValidatorService } from '../../../shared/service/validator.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-verified',
@@ -11,12 +18,15 @@ import { ValidatorService } from '../../../shared/service/validator.service';
 export class VerifiedComponent implements OnInit {
 
   loading:boolean = false;
-  email:string = "agchavez@unah.hn";
+  email:string = localStorage.getItem("email-verfied")!;
+  alert!:AlertType;
   code:FormControl = new FormControl('',[Validators.required, Validators.pattern(this._valServ.codePattern)]);
   durationInSeconds = 5;
   constructor(
-    private _snackBar: MatSnackBar,
-    private _valServ: ValidatorService
+    private _valServ   : ValidatorService,
+    public  dialog     : MatDialog,
+    private router     :Router,
+    private auth       : AuthService
   ) { }
 
   ngOnInit(): void {
@@ -25,22 +35,47 @@ export class VerifiedComponent implements OnInit {
   onVerified(){
     this.code.markAsTouched();
     if (this.code.invalid) {
+      this.alert = {
+        name: NameAlert.warnig,
+        icon: faExclamationCircle,
+        msj:"Datos requeridos",
+        color: ColorAlert.warnig
+      }
+      this.openDialog();
       return
     }
-    this.loading=true;
-    setTimeout(()=>{
-      this.loading=false;
-      this.openSnackBar('Codigo no valido', 'ok')
-    }, 2000);
+    this.auth.verifiedCode(this.code.value)
+        .subscribe(resp => {
+          if (!resp.ok) {
+
+            this.alert = {
+              name: NameAlert.error,
+              icon: faTimesCircle,
+              msj:resp.msj!,
+              color: ColorAlert.error
+            }
+            this.openDialog();
+          }else{
+            this.alert = {
+              name: NameAlert.success,
+              icon: faCheckCircle,
+              msj:resp.msj!,
+              color: ColorAlert.success
+            }
+            this.openDialog();
+            this.router.navigateByUrl('auth');
+          }
+        }
+        );
+
 
 
   }
 
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-      duration: 2000,
-      horizontalPosition: 'end',
-      verticalPosition: 'top'
+  openDialog(){
+    this.dialog.open(AlertComponent,{
+      hasBackdrop: false,
+      data: this.alert
     });
   }
 

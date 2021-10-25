@@ -20,7 +20,7 @@
 
                    <div class="w-100 text-start p-1">
 
-                     <span  class="form-text text-danger"
+                     <span  class="form-text text-danger animate__animated animate__fadeIn"
                             *ngIf="validatorCamp('email')">
                             El correo es requerido
                       </span>
@@ -41,7 +41,7 @@
                   </div>
                   <div class="w-100 text-start p-1">
                      <span *ngIf="validatorCamp('password')"
-                        class="form-text text-danger">
+                        class="form-text text-danger animate__animated animate__fadeIn">
                         La contraseña es requerida
                   </span>
                   </div>
@@ -56,7 +56,7 @@
           </div>
           <div class="mt-2">
 
-            <button type="submit" mat-raised-button class="btn-basic  mt-5">Entrar</button>
+            <button [disabled] = "laoding || myForm.invalid" type="submit" mat-raised-button class="btn-basic  mt-5">Entrar</button>
           </div>
 
           </form>
