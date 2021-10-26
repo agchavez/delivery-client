@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import { faCheckCircle, faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 import { AlertType, ColorAlert, NameAlert } from 'src/app/shared/interfaces/alert.interface';
 import { ValidatorService } from '../../../shared/service/validator.service';
+import { CommentService } from '../../services/comment.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -27,7 +28,8 @@ export class ContactComponent implements OnInit {
   constructor(
     private fb     : FormBuilder,
     private vs     : ValidatorService,
-    private dialog : MatDialog
+    private dialog : MatDialog,
+    private cs     : CommentService
   ) { }
 
   ngOnInit(): void {
@@ -51,16 +53,33 @@ export class ContactComponent implements OnInit {
         return
     }
 
+    const {recaptcha, ...data} = this.myForm.value;
     //TODO: Guardar mensaje y limpiar formulario
-    this.alert = {
-      name: NameAlert.success,
-      icon: faCheckCircle,
-      msj:"Gracias por tu comentario mensaje",
-      color: ColorAlert.success
-    }
+    this.cs.sendMsj(data)
+      .subscribe(resp =>{
+        if(resp.ok) {
+          this.alert = {
+            name: NameAlert.success,
+            icon: faCheckCircle,
+            msj:"Gracias por enviarnos tus comentarios",
+            color: ColorAlert.success
+          }
 
-    this.openDialog();
-    this.myForm.reset();
+          this.openDialog();
+          this.myForm.reset();
+
+        }else{
+          this.alert = {
+            name: NameAlert.info,
+            icon: faQuestionCircle,
+            msj:"Error al enviar el comentario",
+            color: ColorAlert.info
+          }
+
+          this.openDialog();
+        }
+      })
+
   }
 
   resolved(captchaResponse: string) {
