@@ -1,8 +1,29 @@
+input {
+    width: 100%;
+}
+
 @media(max-width:480px) {
     .containerG {
         height: auto!important;
         display: flex!important;
+        margin-top: 0px;
+        margin-bottom: 20px;
     }
+    .google {
+        margin-left: 0px!important;
+    }
+    .containerNaranja {
+        width: auto!important;
+        margin-left: auto!important;
+    }
+}
+
+.google {
+    margin-left: 37px;
+}
+
+#repartidor {
+    color: gray!important;
 }
 
 .contCuentaExiste {
@@ -11,7 +32,7 @@
 }
 
 .input input {
-    margin: 2rem 0;
+    margin: 0.5rem 0;
 }
 
 #textNaranja {
@@ -22,15 +43,15 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 77vh;
     align-items: flex-start;
 }
 
 #btnRegisrtrarme {}
 
 #divIniciar {
-    color: #e6dada;
-    font-weight: 400;
+    font-weight: 200;
+    font-size: 24px;
+    ;
 }
 
 #iniciarS {
@@ -45,23 +66,22 @@
 
 .containerRegister {
     background-color: transparent;
-    padding: 2rem;
-    border-radius: 1rem;
+    padding-top: 25px;
     color: black;
     height: 100%;
 }
 
 .enviar {
-    margin-left: 1rem;
     background-color: #DB6D0B;
     border: 0;
     color: white;
     padding-left: 0.9rem;
     padding-right: 0.9rem;
-    border-radius: 0.4rem;
+    border-radius: 7px;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     width: 200px;
+    font-size: 24px;
 }
 
 .cuenta {
@@ -78,7 +98,8 @@
     color: white;
     height: 85%;
     text-align: center;
-    width: 80%;
+    width: 60%;
+    margin-left: 9rem;
 }
 
 .form-control {

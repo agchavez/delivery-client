@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080/api'
+  baseUrl: 'pidelow-backend-8zkq7.ondigitalocean.app'
 };
 
 /*
