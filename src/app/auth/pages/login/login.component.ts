@@ -10,6 +10,8 @@ import { faCheckCircle, faTimesCircle, faQuestionCircle } from '@fortawesome/fre
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   show:boolean = false;
-  laoding:boolean = false;
+  loading:boolean = false;
+  user!: SocialUser;
 
   alert!:AlertType;
   myForm:FormGroup = this.fb.group({
@@ -30,11 +33,13 @@ export class LoginComponent implements OnInit {
     private validatorService:ValidatorService,
     public  dialog        : MatDialog,
     private router:Router,
-    private auth  : AuthService
+    private auth  : AuthService,
+    private authService: SocialAuthService
   ) { }
 
   ngOnInit(): void {
     window.scroll(0,0);
+
 
   }
 
@@ -43,7 +48,7 @@ export class LoginComponent implements OnInit {
             this.myForm.get(camp)?.touched;
   }
   login(){
-    this.laoding = true;
+    this.loading = true;
     this.myForm.markAllAsTouched();
     if (this.myForm.invalid) {
       this.alert = {
@@ -53,6 +58,7 @@ export class LoginComponent implements OnInit {
         color: ColorAlert.warnig
       }
       this.openDialog();
+      this.loading = false;
       return
 
     }
@@ -60,7 +66,6 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(email, password)
     .subscribe( resp => {
-      console.log(resp);
 
       if (resp.ok === true) {
           //TODO: login exitoso
@@ -79,7 +84,7 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('/auth/verified')
       }
       else{
-
+        this.loading = false;
           //TODO:El usuario no esta registrado
             this.alert = {
               name: NameAlert.error,
@@ -91,15 +96,24 @@ export class LoginComponent implements OnInit {
 
         }
       });
-  this.laoding = false;
+
   }
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.authState
+    .pipe(switchMap((temp)=> this.auth.loginWithGoogle(temp)))
+        .subscribe(resp => {
+          console.log(resp);
+
+        });
+  }
+
   openDialog(){
     this.dialog.open(AlertComponent,{
       hasBackdrop: false,
       data: this.alert
     });
   }
-
   showPass(){
     this.show = !this.show
   }

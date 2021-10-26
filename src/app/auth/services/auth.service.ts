@@ -5,6 +5,8 @@ import { environment } from '../../../environments/environment';
 import { catchError, map, tap} from "rxjs/operators";
 import { of } from "rxjs";
 import { LoginResponse, Client } from '../interface/interfaces';
+import { SocialUser } from 'angularx-social-login';
+import { BasicResponse } from '../../shared/interfaces/interfacesResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +56,9 @@ export class AuthService {
                     return of({ok: false, verified: undefined})}
                   )
               );
+  }
+  loginWithGoogle(user:SocialUser):Observable<boolean>{
+        return of(true);
   }
 
   ///client/validate

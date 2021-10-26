@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { VerifiedComponent } from './pages/verified/verified.component';
 import { ForgotComponent } from './pages/forgot/forgot.component';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 
 
 
@@ -35,7 +36,23 @@ import { ForgotComponent } from './pages/forgot/forgot.component';
     FontAwesomeModule,
     ReactiveFormsModule,
     SharedModule,
-
+    SocialLoginModule
+  ],
+  providers:[
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '904360294727-dm4u4tutvibpntnl17ieqhhjgihnovvn.apps.googleusercontent.com'
+            )
+          },
+        ]
+      } as SocialAuthServiceConfig,
+    }
   ]
 })
 export class AuthModule {
