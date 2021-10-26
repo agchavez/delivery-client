@@ -12,10 +12,12 @@ import { ValidatorService } from '../../../shared/service/validator.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  siteKey:string = "6LdixPMcAAAAABlFCtyhekgQ73lSmk-oqVVImO6Y";
   myForm: FormGroup = this.fb.group({
-    firstName: ["", [Validators.required, Validators.minLength(6)]],
-    lastName:["", [Validators.required,  Validators.minLength(6)]],
+    firstName: ["", [Validators.required, Validators.minLength(3)]],
+    lastName:["", [Validators.required,  Validators.minLength(3)]],
     email: ["", [Validators.required,  Validators.pattern(this.vs.emailPattern)]],
+    recaptcha: ["", Validators.required],
     msj: ["", [Validators.required, Validators.minLength(20)]]
   })
   alert!:AlertType;
@@ -53,7 +55,7 @@ export class ContactComponent implements OnInit {
     this.alert = {
       name: NameAlert.success,
       icon: faCheckCircle,
-      msj:"Hemos recibido tu mensaje",
+      msj:"Gracias por tu comentario mensaje",
       color: ColorAlert.success
     }
 
@@ -61,7 +63,9 @@ export class ContactComponent implements OnInit {
     this.myForm.reset();
   }
 
-
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
 
 openDialog(){
     this.dialog.open(AlertComponent,{

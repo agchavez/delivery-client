@@ -13,6 +13,7 @@ import { MainComponent } from './pages/main/main.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MaterialModule } from '../material/material.module';
     LandingRoutingModule,
     FontAwesomeModule,
     MaterialModule,
+    NgxCaptchaModule,
     ReactiveFormsModule
   ],
   exports: [

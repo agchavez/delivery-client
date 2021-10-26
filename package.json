@@ -28,6 +28,7 @@
     "@popperjs/core": "^2.10.2",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.0.0-beta3",
+    "ngx-captcha": "^10.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
