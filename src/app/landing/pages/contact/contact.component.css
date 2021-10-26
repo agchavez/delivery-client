@@ -4,6 +4,20 @@
         display: flex!important;
         flex-direction: column-reverse!important;
     }
+    .enviar{
+      margin: auto;
+      width: 90% !important;
+    }
+    .container-btn{
+      width: 100%;
+      text-align: center !important;
+    }
+    .form-control{
+      font-size: 18px !important;
+    }
+}
+.container-btn{
+  text-align: end;
 }
 
 .containerG {
@@ -22,9 +36,10 @@
     color: black;
     height: 50%;
 }
-
+.h-80{
+  height: 60%;
+}
 .enviar {
-    margin-left: 1rem;
     background-color: #DB6D0B;
     border: 0;
     color: white;
@@ -41,12 +56,13 @@
     padding: 2rem;
     border-radius: 1rem;
     color: white;
-    height: 50%;
+    height: 100%;
 }
 
 .form-control {
     border: none;
+    border-radius: 0px;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.486);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
 }

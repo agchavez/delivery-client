@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('../node_modules/animate.css/animate.css');
 .form-check-input:checked {
   background-color: black !important;
   border-color: black !important;
@@ -25,10 +26,15 @@
   stroke:#DB6D0B !important;
 }
 .form-control{
+  border-radius: 0px;
   border: none;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.486);
   font-size: 20px;
   font-weight: 400;
+  border-radius: 0px;
+}
+.mat-dialog-container{
+  display: contents !important;
 }
 
 .form-control:hover{
@@ -59,5 +65,30 @@
 .ng-star-inserted{
   color:white;
 }
+.input-group-text{
+  border-radius: 0px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.486);
+  font-size: 20px;
+  font-weight: 400;
+
+}
+.text-orange{
+  color: #DB6D0B;
+  cursor: pointer;
+}
+.ng-star-inserted {
+  color: black;
+}
+.mat-vertical-stepper-header .mat-step-icon {
+  background-color: #DB6D0B;
+}
+@media (max-width:480px) {
+.btn-basic{
+  width: 100%;
+}
+}
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Inter", sans-serif; }

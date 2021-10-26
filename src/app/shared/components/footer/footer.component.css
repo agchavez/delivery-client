@@ -13,8 +13,8 @@
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
+  width: 100% !important;
+  position: relative;
 }
 
 .page-footer{
@@ -48,9 +48,13 @@ footer {
     margin: auto;
     width: 80%;
   }
+  .footer-copyright{
+    padding-bottom: 0px !important;
+  }
   .title{
     display: flex;
-    width: 90%;
+    width: 100%;
+    justify-content: center;
     margin: auto;
     margin-top: 20px;
   }

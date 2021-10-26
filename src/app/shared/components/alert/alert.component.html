@@ -1,0 +1,17 @@
+<div class="container animate__animated animate__backInRight">
+  <div class="row shadow p-3 mb-5 bg-white">
+    <div class="col-2 container-icon">
+      <fa-icon [icon] ="alert.icon"></fa-icon>
+    </div>
+    <div class="col-8 container-info">
+      <p class="title"> {{alert.name}}</p>
+      <p class="subtitle">{{alert.msj}}</p>
+
+
+    </div>
+    <div class="col-2 container-close ps-1">
+      <p (click)="close()">Cerrar</p>
+
+    </div>
+  </div>
+</div>

@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -10,6 +15,8 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { VerifiedComponent } from './pages/verified/verified.component';
+import { ForgotComponent } from './pages/forgot/forgot.component';
+
 
 
 @NgModule({
@@ -18,15 +25,21 @@ import { VerifiedComponent } from './pages/verified/verified.component';
     RegisterComponent,
     MainComponent,
     NavBarComponent,
-    VerifiedComponent
+    VerifiedComponent,
+    ForgotComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     MaterialModule,
+    FontAwesomeModule,
     ReactiveFormsModule,
     SharedModule,
 
   ]
 })
-export class AuthModule { }
+export class AuthModule {
+  constructor(library: FaIconLibrary){
+    library.addIconPacks(fas, far, fab);
+  }
+}

@@ -2,6 +2,8 @@
     margin-left: 1rem;
     background-color: #DB6D0B;
     border: 0;
+    width: 150px;
+    height: 40px;
     color: white;
     padding-left: 0.9rem;
     padding-right: 0.9rem;
@@ -9,8 +11,33 @@
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
 }
+.navbar{
+  background-color: white !important;
 
+}
+.bg-light{
+  box-shadow: grey !important;
+}
+.login-btn{
+  width: 150px;
+  height: 40px;
+}
 .flecha {
     height: 1rem;
     padding-left: 0.3rem;
+}
+.img-logo{
+  height: 50px;
+  margin-right: auto;
+  margin-left: 10px;
+  margin-bottom: 13px;
+ }
+
+@media (max-width:480px) {
+  .img-logo{
+    margin: auto;
+  }
+
+
+
 }
