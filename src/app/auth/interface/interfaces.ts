@@ -16,3 +16,9 @@ export interface Client {
   status: boolean;
   verified: boolean;
 }
+
+export interface RegisterClient {
+  msj: string,
+  id: string,
+  client: Client,
+}

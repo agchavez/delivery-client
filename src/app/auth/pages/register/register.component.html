@@ -14,27 +14,19 @@
                     <form action="" autocomplete="off" [formGroup]="myForm" (ngSubmit)="register()">
 
                         <div class="input" style="margin-bottom: 0px;">
-                            <div class="mt-5 m-1s input-group">
-                                <input formControlName="id" type="text" class="form-control" placeholder="Identidad" [ngClass]="{'invalid-form': validatorCamp('id')}">
-                                <div class="w-100 text-start p-1">
 
-                                    <span class="form-text text-danger animate__animated animate__fadeIn" *ngIf="validatorCamp('id')">
-                                       Requerido, escriba su id sin guiones
-                                        </span>
-                                </div>
-                            </div>
                             <div class="mt-5 m-1s input-group">
-                                <input formControlName="name" type="text" class="form-control" placeholder="Nombre" [ngClass]="{'invalid-form': validatorCamp('name')}">
+                                <input formControlName="firstName" type="text" class="form-control" placeholder="Nombre" [ngClass]="{'invalid-form': validatorCamp('firstName')}">
                                 <div class="w-100 text-start p-1">
-                                    <span class="form-text text-danger animate__animated animate__fadeIn" *ngIf="validatorCamp('name')">
+                                    <span class="form-text text-danger animate__animated animate__fadeIn" *ngIf="validatorCamp('firstNamename')">
                                        Campo Requerido
                                  </span>
                                 </div>
                             </div>
                             <div class="mt-5 m-1s input-group">
-                                <input formControlName="lastname" type="text" class="form-control" placeholder="Apellido" [ngClass]="{'invalid-form': validatorCamp('lastname')}">
+                                <input formControlName="lastName" type="text" class="form-control" placeholder="Apellido" [ngClass]="{'invalid-form': validatorCamp('lastName')}">
                                 <div class="w-100 text-start p-1">
-                                    <span class="form-text text-danger animate__animated animate__fadeIn" *ngIf="validatorCamp('lastname')">
+                                    <span class="form-text text-danger animate__animated animate__fadeIn" *ngIf="validatorCamp('lastName')">
                                        Campo Requerido
                                  </span>
                                 </div>

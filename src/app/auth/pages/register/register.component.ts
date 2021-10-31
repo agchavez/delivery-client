@@ -9,7 +9,7 @@ import { AlertType, ColorAlert, NameAlert } from '../../../shared/interfaces/ale
 import { faCheckCircle, faTimesCircle, faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { ClientsService } from '../../services/clients.service';
 
 @Component({
   selector: 'app-register',
@@ -21,27 +21,27 @@ export class RegisterComponent implements OnInit {
   laoding:boolean = false;
   alert!:AlertType;
   myForm:FormGroup = this.fb.group({
-    id: ['',[Validators.required, Validators.minLength(13)]],
-    name: ['',[Validators.required]],
-    lastname: ['',[Validators.required]],
+    firstName: ['',[Validators.required]],
+    lastName: ['',[Validators.required]],
     phone: ['',[Validators.required, Validators.minLength(8)]],
     email:['',[Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
     password:['',[Validators.required, Validators.minLength(6)]]
   })
-
 
   constructor(
     private fb:FormBuilder,
     private validatorService:ValidatorService,
     public  dialog        : MatDialog,
     private router:Router,
-    private auth  : AuthService
+    private clients  : ClientsService
   ) { 
     
   }
 
   ngOnInit(): void {
     window.scroll(0,0);
+    
+    this.clients.getClient()
   
   }
 
@@ -50,6 +50,7 @@ export class RegisterComponent implements OnInit {
             this.myForm.get(camp)?.touched;
   }
   register(){
+    
     this.laoding = true;
     this.myForm.markAllAsTouched();
     if (this.myForm.invalid) {
@@ -64,7 +65,32 @@ export class RegisterComponent implements OnInit {
 
     }
 
-    
+    const {firstName,lastName,phone,email,password} = this.myForm.value;
+   
+    this.clients.registerClient(email,firstName,lastName,phone,password).subscribe(resp=>{
+      if(resp.ok){
+        this.alert = {
+          name: NameAlert.success,
+          icon: faCheckCircle,
+          msj:"Usuario registrado",
+          color: ColorAlert.success
+        }
+        this.openDialog();
+        this.router.navigateByUrl('/auth/verified')
+
+      }else{
+        this.alert = {
+          name: NameAlert.error,
+          icon: faTimesCircle,
+          msj:"El correo ya está registrado",
+          color: ColorAlert.error
+
+        }
+        this.openDialog();
+
+      }
+      
+    })
   this.laoding = false;
   }
 

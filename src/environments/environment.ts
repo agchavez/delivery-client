@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'pidelow-backend-8zkq7.ondigitalocean.app'
+  baseUrl: 'https://pidelow-backend-8zkq7.ondigitalocean.app/api'
 };
 
 /*
