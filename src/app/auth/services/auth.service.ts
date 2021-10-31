@@ -15,12 +15,15 @@ export class AuthService {
 
 
   get client(){
+    console.log(this._client)
     return {...this._client}
   }
 
   constructor(
     private http:HttpClient
   ) { }
+
+
 
   login(email:string, password:string){
     const url = `${this.baseUrl}/client/login`;

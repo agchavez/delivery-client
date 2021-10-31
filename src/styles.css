@@ -54,6 +54,13 @@
 .form-control:active{
   background-color: white;
 }
+.btn-google{
+  font-size: 18px;
+  font-weight: 400;
+  width: 245px;
+  border-radius: 12px;
+  height: 47px;
+}
 
 .ng-star-inserted{
   color:white;
