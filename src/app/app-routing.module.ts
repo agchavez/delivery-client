@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: ()=> import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
+    path:'clients',
+    loadChildren: ()=> import('./clients/clients/clients.module').then(m => m.ClientsModule)
+  },
+  {
     path:'**',
     redirectTo: '404'
   },
