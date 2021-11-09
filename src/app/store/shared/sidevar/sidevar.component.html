@@ -1,0 +1,13 @@
+<mat-drawer-container  class="example-container sidevar" autosize>
+  <mat-drawer style="position: fixed;" #drawer  mode="side">
+    <p>Auto-resizing sidenav</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="menu" (click)="drawer.toggle()">
+    <fa-icon [icon] ="['fas', 'bars']"></fa-icon>
+  </div>
+
+</mat-drawer-container>
