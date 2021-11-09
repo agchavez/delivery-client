@@ -13,8 +13,8 @@ const routes: Routes = [
   {
     path:'store',
     loadChildren: ()=>import('./store/store.module').then(m=>m.StoreModule),
-    canActivate: [ValidateTokenGuard],
-    canLoad: [ValidateTokenGuard]
+    // canActivate: [ValidateTokenGuard],
+    // canLoad: [ValidateTokenGuard]
   },
   {
     path:'',
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path:'clients',
-    loadChildren: ()=> import('./clients/clients/clients.module').then(m => m.ClientsModule)
+    loadChildren: ()=> import('./clients/clients.module').then(m => m.ClientsModule)
   },
   {
     path:'**',
