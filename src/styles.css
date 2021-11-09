@@ -110,12 +110,12 @@
   background-color: white !important;
   color: black !important;
 }
-@media (max-width:480px) {
+@media (max-width:450px) {
 .btn-s{
   width: 100%;
 }
 .title-page{
-  font-size: 30px;
+  font-size: 28px;
   margin-left: 10px;
 }
 }
