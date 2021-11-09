@@ -6,6 +6,8 @@ import { MainComponent } from './pages/main/main.component';
 import { VerifiedComponent } from './pages/verified/verified.component';
 import { ForgotComponent } from './pages/forgot/forgot.component';
 import { ValidateEmailGuard } from '../guards/validate-email.guard';
+import { CategorieComponent } from './pages/categorie/categorie.component';
+import { LocationComponent } from './pages/location/location.component';
 
 const routes: Routes = [
   {
@@ -20,7 +22,9 @@ const routes: Routes = [
         canActivate: [ValidateEmailGuard],
       },
       {path:'forgot-password', component: ForgotComponent},
-      
+      {path:'categorie', component: CategorieComponent},
+      {path:'location', component: LocationComponent},
+
       {path:'**', redirectTo: 'login'}
   ]}
 

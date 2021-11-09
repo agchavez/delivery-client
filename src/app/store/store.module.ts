@@ -5,7 +5,6 @@ import { StoreRoutingModule } from './store-routing.module';
 import { MainComponent } from './pages/main/main.component';
 import { HomeComponent } from './pages/home/home.component';
 
-
 @NgModule({
   declarations: [
     MainComponent,
