@@ -22,6 +22,20 @@
   color: white;
   font-size: 24px;
 }
+.btn-basic-white{
+  background-color: white;
+  border-radius: 11px;
+  width: 289px;
+  height: 55px;
+  color: #DB6D0B;
+  font-size: 24px;
+}
+.title-page{
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
 .mat-progress-spinner circle, .mat-spinner circle{
   stroke:#DB6D0B !important;
 }
@@ -61,7 +75,15 @@
   border-radius: 12px;
   height: 47px;
 }
-
+.mat-select-min-line{
+  color: #DB6D0B !important;
+}
+.mat-primary{
+  color: #DB6D0B !important;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+  color: #DB6D0B !important;
+}
 .ng-star-inserted{
   color:white;
 }
@@ -84,9 +106,17 @@
 .mat-vertical-stepper-header .mat-step-icon {
   background-color: #DB6D0B;
 }
+.mat-form-field-flex{
+  background-color: white !important;
+  color: black !important;
+}
 @media (max-width:480px) {
-.btn-basic{
+.btn-s{
   width: 100%;
+}
+.title-page{
+  font-size: 30px;
+  margin-left: 10px;
 }
 }
 

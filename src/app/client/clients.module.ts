@@ -12,7 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     MainComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     CommonModule,
