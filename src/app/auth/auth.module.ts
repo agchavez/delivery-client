@@ -17,6 +17,8 @@ import { MaterialModule } from '../material/material.module';
 import { VerifiedComponent } from './pages/verified/verified.component';
 import { ForgotComponent } from './pages/forgot/forgot.component';
 import { DirectionComponent } from './pages/direction/direction.component';
+import { LocationComponent } from './pages/location/location.component';
+import { CategorieComponent } from './pages/categorie/categorie.component';
 
 
 
@@ -28,7 +30,9 @@ import { DirectionComponent } from './pages/direction/direction.component';
     NavBarComponent,
     VerifiedComponent,
     ForgotComponent,
-    DirectionComponent
+    DirectionComponent,
+    LocationComponent,
+    CategorieComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +41,10 @@ import { DirectionComponent } from './pages/direction/direction.component';
     FontAwesomeModule,
     ReactiveFormsModule,
     SharedModule,
-
+  ]
+  ,
+  exports: [
+    NavBarComponent
   ]
 })
 export class AuthModule {
