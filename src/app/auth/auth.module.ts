@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { VerifiedComponent } from './pages/verified/verified.component';
 import { ForgotComponent } from './pages/forgot/forgot.component';
+import { DirectionComponent } from './pages/direction/direction.component';
 
 
 
@@ -26,7 +27,8 @@ import { ForgotComponent } from './pages/forgot/forgot.component';
     MainComponent,
     NavBarComponent,
     VerifiedComponent,
-    ForgotComponent
+    ForgotComponent,
+    DirectionComponent
   ],
   imports: [
     CommonModule,
