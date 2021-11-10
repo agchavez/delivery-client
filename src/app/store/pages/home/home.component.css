@@ -27,25 +27,31 @@
 }
 
 .search input {
-    padding: 7px;
-    border-radius: 5px;
-    margin-right: 7px;
-    width: 50%;
+    padding: 5px;
+    border-radius: 15px;
+    margin-right: 41px;
+    width: 52%;
+}
+
+.card-body {
+    padding-left: 0!important;
 }
 
 .imgCat {
     padding-right: 10px;
-    height: 10vh;
+    height: 102%;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.card {
-    margin: 15px!important;
-}
-
 .cards {
     display: flex;
+}
+
+#iconMap {
+    margin-right: 16px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .filterdiv {
@@ -61,22 +67,47 @@
 .card {
     display: flex;
     justify-content: space-around;
-    background-color: #80808014;
-    box-shadow: 1px 1px 3px 1px;
+    background-color: #F8F8F8;
+    box-shadow: -2px 2px 3px -1px;
+    border-radius: 11px;
+    margin: 15px!important;
 }
 
 .search button {
-    padding: 6px;
-    border-radius: 5px;
+    padding: 3px;
+    border-radius: 15px;
     background-color: transparent;
-    height: 15%;
+    height: 25%;
+    padding-left: 29px;
+    padding-right: 30px;
+    display: flex;
 }
 
 #labelCategoria {
     padding-top: 10px;
 }
 
+.fav {
+    display: flex;
+}
+
 @media(max-width:480px) {
+    #iconMap {
+        margin-right: 7px;
+        margin-left: 7px;
+    }
+    .search button {
+        padding: 5px;
+        border-radius: 10px;
+        padding-left: 2px;
+        padding-right: 3px;
+    }
+    .search input {
+        padding: 0px!important;
+        border-radius: 8px;
+        margin-right: 18px;
+        width: 65%;
+    }
     .imageCat {
         height: 30px!important;
     }
@@ -94,5 +125,12 @@
     }
     #row {
         margin-left: 1px;
+    }
+    .card {
+        margin: 15px!important;
+        width: 83%;
+    }
+    #lugar {
+        display: none;
     }
 }

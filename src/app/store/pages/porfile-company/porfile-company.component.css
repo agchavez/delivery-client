@@ -1,0 +1,50 @@
+#banner {
+    width: 100%;
+    height: 25%;
+}
+
+#empresa {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 19px;
+}
+
+#empresaDiv {
+    display: flex;
+    margin-left: 110px;
+    margin-right: 110px;
+    margin-top: 15px;
+}
+
+#nombre {
+    font-weight: bold;
+}
+
+.fav {
+    display: flex;
+}
+
+@media(max-width:480px) {
+    #corazon {
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 24px;
+        margin-right: -7px;
+    }
+    #logo {
+        width: 67px;
+        height: 77px;
+        margin-top: 20px;
+        margin-bottom: auto;
+    }
+    #nombre {}
+    #empresaDiv {
+        margin-left: 13px;
+        margin-right: 5px;
+        margin-top: 13px;
+    }
+    #fav {
+        display: none;
+    }
+}
