@@ -20,8 +20,10 @@ const routes: Routes = [
         canActivate: [ValidateEmailGuard],
       },
       {path:'forgot-password', component: ForgotComponent},
+
       
-      {path:'**', redirectTo: 'login'}
+      
+      {path:'**', redirectTo: ''}
   ]}
 
 ];

@@ -4,8 +4,29 @@
     text-align: start;
 }
 
+#btnMenu {
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+#logo {
+    margin-bottom: 0;
+    margin-top: 8px;
+}
+
+#divrigth {
+    display: flex;
+    height: 58px;
+}
+
+#name {
+    padding-top: 9px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
 .subtitle {
-    margin-top: 6px;
+    margin-top: 9px;
     margin-left: 5px;
 }
 

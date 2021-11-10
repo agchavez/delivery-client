@@ -6,13 +6,15 @@ import { MainComponent } from './pages/main/main.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SharedModule } from '../shared/shared.module';
+import { PorfileCompanyComponent } from './pages/porfile-company/porfile-company.component';
 
 
 @NgModule({
   declarations: [
     MainComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    PorfileCompanyComponent
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { MainComponent } from './pages/main/main.component';
+import { PorfileCompanyComponent } from './pages/porfile-company/porfile-company.component';
 
 const routes: Routes = [
   {
@@ -10,8 +11,10 @@ const routes: Routes = [
     children:[
      
       {path:'', component: HomeComponent},
+      {path:'porfileCompany', component: PorfileCompanyComponent},
+
       
-      {path:'**', redirectTo: 'login'}
+      {path:'**', redirectTo: ''}
   ]}
 ];
 
