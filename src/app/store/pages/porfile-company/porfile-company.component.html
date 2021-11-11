@@ -16,4 +16,104 @@
             <i class="fas fa-heart" id="corazon"></i>
         </div>
     </div>
+
+
+</div>
+
+<div class="containerCate">
+
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" id="expan">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Categorias Disponibles
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <li>Comidas rápidas</li>
+            <li>Bebidas</li>
+
+        </mat-expansion-panel>
+        <br>
+    </mat-accordion>
+    <div class="divCards">
+        <input type="search" placeholder="Buscar Producto...">
+        <div class="categorias">Comidas Rápidas</div>
+        <div class="cards row">
+
+
+            <div class="col-xl-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body" style="display: flex; justify-content: space-around;">
+
+                        <div>
+                            <h4 id="pedido" class="mb-0">Pizza 4 quesos</h4>
+                            <p class="mb-0">Pizza 4 quesos con orilla crujiente para que la puedas compartir con tu familia</p>
+                            <h4 class="mb-0 precio">Lps. 400</h4>
+                        </div>
+                        <img src="../../../../assets/pizza.png" height="20%" class="card-img-left imgCat" alt="..." style="padding-right: 10px;">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body" style="display: flex; justify-content: space-around;">
+
+                        <div>
+                            <h4 id="pedido" class="mb-0">Pizza 4 quesos</h4>
+                            <p class="mb-0">Pizza 4 quesos con orilla crujiente para que la puedas compartir con tu familia</p>
+                            <h4 class="mb-0 precio">Lps. 400</h4>
+                        </div>
+                        <img src="../../../../assets/pizza.png" height="20%" class="card-img-left imgCat" alt="..." style="padding-right: 10px;">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="categorias">Bebidas</div>
+        <div class="cards row">
+
+
+            <div class="col-xl-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body" style="display: flex; justify-content: space-around;">
+
+                        <div>
+                            <h4 id="pedido" class="mb-0">CocaCola 3L.</h4>
+                            <p class="mb-0">Pizza 4 quesos con orilla crujiente para que la puedas compartir con tu familia</p>
+                            <h4 class="mb-0 precio">Lps. 400</h4>
+                        </div>
+                        <img src="../../../../assets/coca.png" height="20%" class="card-img-left imgCat" alt="..." style="padding-right: 10px;">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body" style="display: flex; justify-content: space-around;">
+
+                        <div>
+                            <h4 id="pedido" class="mb-0">CocaCola 3L.</h4>
+                            <p class="mb-0">Pizza 4 quesos con orilla crujiente para que la puedas compartir con tu familia</p>
+                            <h4 class="mb-0 precio">Lps. 400</h4>
+                        </div>
+                        <img src="../../../../assets/coca.png" height="20%" class="card-img-left imgCat" alt="..." style="padding-right: 10px;">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
 </div>

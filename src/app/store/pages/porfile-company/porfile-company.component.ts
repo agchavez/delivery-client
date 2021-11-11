@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./porfile-company.component.css']
 })
 export class PorfileCompanyComponent implements OnInit {
+  panelOpenState = false;
+
 
   constructor() { }
 

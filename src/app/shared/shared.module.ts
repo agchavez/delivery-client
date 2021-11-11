@@ -10,6 +10,8 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { MaterialModule } from '../material/material.module';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { AlertComponent } from './components/alert/alert.component';
   imports: [
     CommonModule,
     SharedRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MaterialModule
   ],
   exports: [
     FooterComponent,

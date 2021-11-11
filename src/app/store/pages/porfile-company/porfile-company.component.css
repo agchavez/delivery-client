@@ -3,11 +3,17 @@
     height: 25%;
 }
 
+#logo {
+    height: 112px
+}
+
 #empresa {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 19px;
+    height: 99px;
+    border-bottom: 1px solid;
 }
 
 #empresaDiv {
@@ -25,7 +31,99 @@
     display: flex;
 }
 
+#corazon {
+    margin-top: 4px;
+    margin-left: 13px;
+}
+
+.divCards {
+    margin-left: 43px;
+    width: 100%;
+    text-align: center;
+}
+
+.card {
+    margin: 23px;
+    background-color: #FFFFFF;
+    box-shadow: -1px 1px 4px -1px;
+}
+
+#pedido {
+    font-weight: bold;
+}
+
+.imgCat {
+    padding-right: 4px;
+    padding-left: 20px;
+    width: 119px;
+    height: 89px;
+}
+
+.categorias {
+    text-align: start;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 28px;
+}
+
+.divCards input {
+    padding: 5px;
+    border-radius: 11px;
+    margin-right: 41px;
+    width: 59%;
+}
+
+.cards {
+    margin-left: 37px;
+    text-align: start;
+    margin-top: 28px;
+    width: 86%;
+}
+
+li {
+    list-style: none;
+}
+
+.mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+#expan {
+    width: 233px!important;
+}
+
+.containerCate {
+    display: flex;
+    margin-left: 133px;
+    margin-top: 78px;
+}
+
 @media(max-width:480px) {
+    .precio {
+        font-weight: bold;
+    }
+    .example-headers-align {
+        display: none;
+    }
+    .divCards input {
+        width: 84%;
+    }
+    .card {
+        margin-left: 0;
+    }
+    .cards {
+        margin-left: 0px;
+        margin-top: 0;
+        width: 96%;
+    }
+    .containerCate {
+        display: flex;
+        margin-left: 0;
+        margin-top: 28px;
+    }
+    #empresa {
+        border-bottom: 0px
+    }
     #corazon {
         margin-top: auto;
         margin-bottom: auto;
@@ -43,8 +141,12 @@
         margin-left: 13px;
         margin-right: 5px;
         margin-top: 13px;
+        border-bottom: 1px solid;
     }
     #fav {
         display: none;
+    }
+    #banner {
+        height: 20%;
     }
 }

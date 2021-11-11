@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SharedModule } from '../shared/shared.module';
 import { PorfileCompanyComponent } from './pages/porfile-company/porfile-company.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PorfileCompanyComponent } from './pages/porfile-company/porfile-company
   imports: [
     CommonModule,
     StoreRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class StoreModule { }
