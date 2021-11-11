@@ -1,0 +1,23 @@
+.container-img{
+  width: 184px;
+  height: 167px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.356);
+  text-align: center;
+  padding-top: 20px;
+  margin: auto;
+}
+
+.img{
+  width: 70%;
+  margin-top: auto;
+}
+
+.container-porfile{
+  text-align: center;
+}
+.btn-edit{
+  background-color: #C4C4C4;
+  border-radius: 12px;
+  margin: 10px 0px;
+}
