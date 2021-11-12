@@ -1,0 +1,19 @@
+.item-menu{
+  font-size: 28px;
+  font-weight: 300;
+}
+.menu{
+  border-right: 1px solid gray;
+}
+.container-item{
+  cursor: pointer;
+}
+.container-item:hover{
+  background-color: rgba(243, 241, 241, 0.815);
+}
+.container{
+  height: 78vh;
+}
+.row{
+  height: 90%;
+}

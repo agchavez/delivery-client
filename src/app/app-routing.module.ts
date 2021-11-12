@@ -25,7 +25,7 @@ const routes: Routes = [
     loadChildren: ()=> import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path:'client',
+    path:'porfile',
     loadChildren: ()=> import('./client/clients.module').then(m => m.ClientsModule)
   },
   {

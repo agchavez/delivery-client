@@ -5,6 +5,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ClientsRoutingModule } from './clients-routing.module';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { PorfileComponent } from './pages/porfile/porfile.component';
+import { CardComponent } from './pages/card/card.component';
+import { SettingComponent } from './pages/setting/setting.component';
 
 
 
@@ -13,6 +16,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MainComponent,
     HomeComponent,
     NavBarComponent,
+    PorfileComponent,
+    CardComponent,
+    SettingComponent,
   ],
   imports: [
     CommonModule,

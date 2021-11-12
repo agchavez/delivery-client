@@ -8,13 +8,15 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SharedModule } from '../shared/shared.module';
 import { SidevarComponent } from './shared/sidevar/sidevar.component';
 import { MaterialModule } from '../material/material.module';
+import { CompanyComponent } from './pages/company/company.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     HomeComponent,
     NavBarComponent,
-    SidevarComponent
+    SidevarComponent,
+    CompanyComponent
   ],
   imports: [
     CommonModule,
