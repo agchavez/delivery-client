@@ -1,0 +1,124 @@
+input {
+    width: 100%;
+}
+
+.content {
+    padding: 50px;
+    padding-top: 25px;
+    text-align: center;
+}
+
+@media(max-width:480px) {
+    .content {
+        padding: 20px;
+    }
+    .containerG {
+        height: auto!important;
+        display: flex!important;
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+    .google {
+        margin-left: 0px!important;
+    }
+    .containerNaranja {
+        width: 90%!important;
+        margin: 20px!important;
+    }
+}
+
+input {}
+
+.google {
+    margin-left: 37px;
+}
+
+#repartidor {
+    color: gray!important;
+}
+
+.contCuentaExiste {
+    margin-top: auto!important;
+    margin-bottom: auto!important;
+}
+
+.input input {
+    margin: 0.5rem 0;
+}
+
+#textNaranja {
+    color: #DB6D0B;
+}
+
+.containerG {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#btnRegisrtrarme {}
+
+#divIniciar {
+    font-weight: 200;
+    font-size: 24px;
+    ;
+}
+
+#iniciarS {
+    color: white;
+    border: 0.5px solid #dbd6d675;
+}
+
+#btnRegisrtrarme {
+    width: 100%;
+    margin: 0;
+}
+
+.containerRegister {
+    background-color: transparent;
+    padding-top: 25px;
+    color: black;
+    height: 100%;
+}
+
+.enviar {
+    background-color: #DB6D0B;
+    border: 0;
+    color: white;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    border-radius: 7px;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    width: 70%;
+    font-size: 24px;
+}
+
+.cuenta {
+    width: auto;
+    margin-left: 5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.containerNaranja {
+    background-color: #DB6D0B;
+    background-color: #DB6D0B;
+    /* padding: 2rem; */
+    border-radius: 1rem;
+    color: white;
+    height: 600px;
+    text-align: center;
+    width: 520px;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* margin-left: 9rem;*/
+}
+
+.form-control {
+    border: none;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.486);
+    font-size: 24px;
+    font-weight: 400;
+}

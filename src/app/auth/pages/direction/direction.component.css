@@ -1,0 +1,49 @@
+.divDirection {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    padding: 10px;
+    margin: 10px;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    border-radius: 10px;
+}
+
+#map {
+    height: 50%;
+    width: 50%;
+}
+
+.btnContinue {
+    background-color: transparent;
+    border-color: #DB6D0B;
+    color: #DB6D0B;
+    margin-top: 30px;
+    border-radius: 7px;
+    margin-left: 55rem;
+    padding: 8px 55px;
+    padding-right: 35px;
+}
+
+.btnContinue:hover {
+    background-color: #DB6D0B;
+    color: white;
+}
+
+@media(max-width:480px) {
+    .option {
+        padding: 10px;
+        margin: 10px;
+        margin-left: 4px;
+        margin-right: 4px;
+        border-radius: 10px;
+    }
+    #map {
+        width: 100%;
+    }
+    .btnContinue {
+        margin-left: 5rem;
+    }
+}

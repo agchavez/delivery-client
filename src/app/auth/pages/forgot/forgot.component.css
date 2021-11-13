@@ -1,0 +1,54 @@
+
+
+.c-black {
+  color: black;
+  font-weight: 600;
+  font-size: 34px !important;
+}
+.content{
+  height: auto;
+  margin: 0px auto;
+}
+
+.input-container{
+  width: 100%;
+}
+.form-control{
+  font-size: 18px;
+}
+.row{
+  width: 30vw;
+  margin: auto;
+  height: 80vh;
+}
+
+.btn-next{
+  width: 100px;
+  color: white !important;
+  background-color: #DB6D0B;
+}
+.title-login{
+  color:black;
+
+  font-size: 48px;
+  width: 100%;
+}
+@media only screen and (max-width: 450px) {
+  .row{
+    width: 100vw;
+    height: auto;
+  }
+  .title-login{
+    font-size: 28px;
+  }
+  .content{
+    width: auto;
+    padding: auto;
+    padding-bottom: 10px;
+  }
+
+  .container{
+    padding: 0px;
+
+  }
+}

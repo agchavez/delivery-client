@@ -1,0 +1,126 @@
+
+<div class="container animate__animated animate__fadeIn">
+  <div class="containerG row">
+    <div class="col-lg-6 col-sm-12 h-80" style="width: auto;">
+
+        <div class="containerNaranja">
+
+            <h5>Información de contacto</h5>
+            <div style="height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;">
+                <div>
+                    <div style="display: flex;justify-content: space-around;">
+                        <i class="fas fa-envelope" style="line-height: revert"></i>
+                        <div>email@gmail.com</div>
+                    </div>
+                </div>
+                <div style="display: flex;justify-content: space-around;">
+                    <i class="fas fa-mobile-alt" style="line-height: revert"></i>
+                    <div>+504 963820579</div>
+                </div>
+            </div>
+            <div style="margin-left: 3vh;
+        margin-top: 10vh;">
+                <img src="../../../../assets/Cliente-landing/Social Links.png" alt="" style="height: 25px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-sm-120" style="width: auto;">
+        <div class="containerMensaje">
+
+            <h5 style="">Envianos un mensaje</h5>
+            <p style="color: gray; ;">Nos pondremos en contanto lo mas antes posible </p>
+
+            <div class="form-content">
+                <form action="" autocomplete="off" [formGroup]="myForm">
+                    <div class="row ">
+                        <div class="mt-5 col-sm-12 col-lg-6">
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Nombre"
+                                    [ngClass]="{'invalid-form': validatorCamp('firstName')}"
+                                    formControlName="firstName"
+                            >
+                            <div class="w-100 text-start p-1">
+                              <span *ngIf="validatorCamp('firstName')"
+                                  class="form-text text-danger animate__animated animate__fadeIn">
+                                  Campo requerido
+                            </span>
+                            </div>
+
+                        </div>
+                        <div class="mt-5 col-sm-12 col-lg-6" >
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Apellido"
+                                [ngClass]="{'invalid-form': validatorCamp('lastName')}"
+                                formControlName="lastName"
+                            >
+                            <div class="w-100 text-start p-1">
+                              <span *ngIf="validatorCamp('lastName')"
+                                  class="form-text text-danger animate__animated animate__fadeIn">
+                                  Campo requerido
+                            </span>
+                            </div>
+                            </div>
+                    </div>
+                    <div  class="mt-5">
+                        <input
+                            type="text"
+                            class="form-control"
+                            [ngClass]="{'invalid-form': validatorCamp('email')}"
+                            placeholder="correo electrónico"
+                            formControlName="email"
+                        >
+                        <div class="w-100 text-start p-1">
+                          <span *ngIf="validatorCamp('email')"
+                              class="form-text text-danger animate__animated animate__fadeIn">
+                              Campo requerido
+                        </span>
+                        </div>
+
+                      </div>
+                      <div class="mt-5">
+
+                        <textarea
+                              class="form-control"
+                              cols="10"
+                              rows="3"
+                              placeholder="enviar un comentario"
+                              formControlName="msj"
+                              [ngClass]="{'invalid-form': validatorCamp('msj')}"
+                        >
+                        </textarea>
+                        <div class="w-100 text-start p-1">
+                          <span *ngIf="validatorCamp('msj')"
+                              class="form-text text-danger animate__animated animate__fadeIn">
+                              Campo requerido
+                        </span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                      <ngx-recaptcha2 #captchaElem
+                          [siteKey] ="siteKey"
+                          [ngClass]="{'invalid-form': validatorCamp('recaptcha')}"
+                          formControlName="recaptcha"
+                      >
+
+                      </ngx-recaptcha2>
+
+                    </div>
+                    <div class="container-btn mt-5">
+
+                        <button type="submit" (click)="send()" mat-raised-button class="enviar">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

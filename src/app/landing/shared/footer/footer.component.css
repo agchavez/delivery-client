@@ -1,0 +1,18 @@
+.footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+@media (min-width:480px) {
+  footer{
+    justify-content: center;
+    text-align: center;
+  }
+
+  .container-img{
+    display: block;
+    padding: 20px;
+  }
+
+}
