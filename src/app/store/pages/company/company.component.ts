@@ -12,4 +12,5 @@ export class CompanyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }
