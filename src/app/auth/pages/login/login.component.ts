@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
 
       if (resp.ok === true) {
           //TODO: login exitoso
-          this.router.navigate(['/store']);
+          this.router.navigate(['/auth/location']);
 
       }
       else if (resp.verified === false ) {

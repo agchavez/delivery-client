@@ -4,13 +4,89 @@
     text-align: start;
 }
 
+#btnMenu {
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+#logo {
+    margin-bottom: 0;
+    margin-top: 8px;
+}
+
+#divrigth {
+    display: flex;
+    height: 58px;
+}
+
+#name {
+    padding-top: 9px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.options {
+    margin-left: auto;
+    font-size: larger;
+}
+
 .subtitle {
-    margin-top: 6px;
+    margin-top: 9px;
     margin-left: 5px;
 }
 
 .container-fluid {
     justify-content: space-between;
+}
+
+#nombreP {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#canasta {
+    height: revert;
+    width: 45px;
+}
+
+.divNom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.botonesone {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.btnCancelar {
+    margin-right: 10px;
+    background-color: black!important;
+}
+
+.btnPagar {
+    margin-right: 10px;
+    background-color: #DB6D0B!important;
+    border: 0;
+}
+
+.btnPagar2 {
+    margin-right: 10px;
+    background-color: #DB6D0B!important;
+    border: 0;
+}
+
+.reportar {
+    color: white;
+    background-color: #616161;
+    border-radius: 12px;
+    padding-left: 42px;
+    padding-right: 42px;
+}
+
+.divNom p {
+    margin-bottom: 0;
 }
 
 .canast {
@@ -19,6 +95,7 @@
     border: 2px solid;
     border-radius: 9px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 @media(max-width:480px) {
