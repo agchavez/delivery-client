@@ -50,7 +50,7 @@
                 </div>
                 <div class="row mt-5 mb-5">
                     <h3>Comidas rapidas</h3>
-                    <div class="col-lg-6 col-sm-12" type="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class="col-lg-6 col-sm-12" type="button" (click)="DetailProduct(modalDetailProduct)">
                         <div class="container-product d-flex shadow b-11 p-3">
                             <div class="container-info-product">
                                 <p class="product-title">Pizza 4 quesos</p>
@@ -110,53 +110,50 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Pizza 4 Quesos</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+<!-- Modal de detalle de producto-->
+<ng-template #modalDetailProduct let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Pizza 4 Quesos</h4>
+        <button type="button" class="close" (click)="modal.close('Close click')">
+          <img src="../../../../assets/icon/equis.png" alt="" style="height: 19px;">
         </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-xl-6 col-sm-12">
-                        <div>
-                            Pizza 4 quesos con orilla crujiente...
-                        </div>
-                        <h5 class="price">L.400</h5>
-                        <div style="display: flex;">
-                            <b>Cantidad </b>
-                            <input type="number" class="number">
-                        </div>
-                    </div>
-
-                    <div class="col-xl-6 col-sm-12">
-                        <img class="img-product prod" src="https://www.saborusa.com/wp-content/uploads/2019/10/Animate-a-disfrutar-una-deliciosa-pizza-de-salchicha-Foto-destacada.png" width="150" height="150" alt="">
-
-                    </div>
-                </div>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-xl-6 col-sm-12">
                 <div>
-                    <br>
-                    <br>
-                    <h5>Complementos</h5>
-                    <div style="padding-left: 10px;">
-                        <div class="comple">
-                            <div>
-                                <p style="margin-bottom: 0;">Pan de ajo</p>
-                                <p>(+ L.90.00)</p>
-                            </div>
-                            <input type="number" class="inpCant">
-                        </div>
-                    </div>
+                    Pizza 4 quesos con orilla crujiente...
+                </div>
+                <h5 class="price">L.400</h5>
+                <div style="display: flex;">
+                    <b>Cantidad </b>
+                    <input type="number" class="number">
                 </div>
             </div>
-            <div class="modal-footer">
-                <h5>Precio Total: L.400.00</h5>
-                <button type="button" class="btn btn-primary btnCarrito" data-dismiss="modal">Agregar al carrito</button>
+
+            <div class="col-xl-6 col-sm-12">
+                <img class="img-product prod modalImg" src="https://www.saborusa.com/wp-content/uploads/2019/10/Animate-a-disfrutar-una-deliciosa-pizza-de-salchicha-Foto-destacada.png" width="150" height="150" alt="">
+
+            </div>
+        </div>
+        <div>
+            <br>
+            <br>
+            <h5>Complementos</h5>
+            <div style="padding-left: 10px;">
+                <div class="comple">
+                    <div>
+                        <p style="margin-bottom: 0;">Pan de ajo</p>
+                        <p>(+ L.90.00)</p>
+                    </div>
+                    <input type="number" class="inpCant">
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btnCarrito" data-dismiss="modal">Agregar al carrito</button>
+        <h5>Precio Total: L.400.00</h5>
+
+    </div>
+</ng-template>
