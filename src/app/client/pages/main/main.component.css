@@ -1,19 +1,48 @@
-.item-menu{
-  font-size: 28px;
-  font-weight: 300;
+.item-menu {
+    font-size: 28px;
+    font-weight: 300;
 }
-.menu{
-  border-right: 1px solid gray;
+
+.menu {
+    border-right: 1px solid gray;
 }
-.container-item{
-  cursor: pointer;
+
+.container-item {
+    cursor: pointer;
 }
-.container-item:hover{
-  background-color: rgba(243, 241, 241, 0.815);
+
+.container-item:hover {
+    background-color: rgba(243, 241, 241, 0.815);
 }
-.container{
-  height: 78vh;
+
+.container {
+    height: 78vh;
 }
-.row{
-  height: 90%;
+
+.row {
+    height: 90%;
+}
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
+}
+
+hr {
+    display: none;
+}
+
+@media(max-width:480px) {
+    hr {
+        display: block;
+    }
+    .menu {
+        border-right: 0px solid;
+    }
+    .container {
+        height: 96vh;
+    }
 }

@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { PorfileComponent } from './pages/porfile/porfile.component';
 import { CardComponent } from './pages/card/card.component';
 import { SettingComponent } from './pages/setting/setting.component';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -23,7 +24,8 @@ import { SettingComponent } from './pages/setting/setting.component';
   imports: [
     CommonModule,
     ClientsRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule,
   ]
 })
 export class ClientsModule { }
