@@ -6,46 +6,16 @@
         <div class="col-12 mt-3 container-info">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-lg-3 col-6 mt-3 container-card ">
+                    <fa-icon [icon]="['far', 'arrow-alt-circle-left']" class="arrow" (click)="getCategories('left')" *ngIf="offset>0"></fa-icon>
+                    <div class="col-lg-3 mt-3 container-card " *ngFor="let category of categories">
                         <div class="container-categorie shadow-sm">
-                            <img src="https://res.cloudinary.com/dezhqt17n/image/upload/v1636431924/Categories/bebida-alcoholica_gf1zqf.png" class="img-categorie" alt="" srcset="">
+                            <img src="{{category.imgUrl}}" class="img-categorie" alt="" srcset="">
                             <div class="title-categorie">
-                                <p>Farmacia</p>
+                                <p>{{category.name}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-6 mt-3 container-card ">
-                        <div class="container-categorie shadow-sm">
-                            <img src="https://res.cloudinary.com/dezhqt17n/image/upload/v1636431924/Categories/bebida-alcoholica_gf1zqf.png" class="img-categorie" alt="" srcset="">
-                            <div class="title-categorie">
-                                <p>Comida rapida</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6 mt-3 container-card ">
-                        <div class="container-categorie shadow-sm">
-                            <img src="https://res.cloudinary.com/dezhqt17n/image/upload/v1636431924/Categories/bebida-alcoholica_gf1zqf.png" class="img-categorie" alt="" srcset="">
-                            <div class="title-categorie">
-                                <p>Bebidas</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6 mt-3 container-card ">
-                        <div class="container-categorie shadow-sm">
-                            <img src="https://res.cloudinary.com/dezhqt17n/image/upload/v1636431924/Categories/bebida-alcoholica_gf1zqf.png" class="img-categorie" alt="" srcset="">
-                            <div class="title-categorie">
-                                <p>Farmacia</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6 mt-3 container-card ">
-                        <div class="container-categorie shadow-sm">
-                            <img src="https://res.cloudinary.com/dezhqt17n/image/upload/v1636431924/Categories/bebida-alcoholica_gf1zqf.png" class="img-categorie" alt="" srcset="">
-                            <div class="title-categorie">
-                                <p>Farmacia</p>
-                            </div>
-                        </div>
-                    </div>
+                    <fa-icon [icon]="['far', 'arrow-alt-circle-right']" class="arrow left" (click)="getCategories('rigth') " *ngIf="limit<cant"></fa-icon>
                 </div>
             </div>
 

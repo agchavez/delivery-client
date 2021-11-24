@@ -17,6 +17,12 @@ export interface Client {
   verified: boolean;
 }
 
+export interface Category {
+  _id: string;
+  name: string;
+  imgUrl: string;
+}
+
 export interface RegisterClient {
   msj: string,
   id: string,
