@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="as">
         <div class="col-12 container-banner p-0">
-            <img class="img-banner" src="https://buypizzahutcards.com/images/OPD015003_HeroBanner_1988x542_3jh.jpg" alt="" srcset="">
+            <img class="img-banner" src="{{company.bannerUrl}}" alt="" srcset="">
 
         </div>
         <div class="row container-info">
@@ -9,11 +9,11 @@
                 <div class="container-logo">
                     <div class="ms-4">
 
-                        <img src="https://cdn.worldvectorlogo.com/logos/pizza-hut-1.svg" width="125" height="126" alt="">
+                        <img src="{{company.imgUrl}}" width="125" height="126" alt="">
                     </div>
                 </div>
                 <div class="ms-4 info-company ">
-                    <p class="title-company">PizzaHut</p>
+                    <p class="title-company">{{company.name}}</p>
                     <div class="container-start d-flex">
                         <fa-icon [icon]="['fas', 'star']"></fa-icon>
                         <fa-icon [icon]="['fas', 'star']"></fa-icon>
@@ -22,7 +22,7 @@
                         <fa-icon [icon]="['far', 'star']"></fa-icon>
                     </div>
                     <div class="phone">
-                        <p>2774-2814</p>
+                        <p>{{company.phone}}</p>
                     </div>
                 </div>
 
@@ -39,71 +39,32 @@
                             Categorias disponibles
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <p>Comidas rapidas</p>
-                    <p>Bebidas</p>
-                    <p>Otros</p>
+                    <p class="cat" *ngFor="let cat of categories" (click)="getById(cat.id)">{{cat.name}} </p>
                 </mat-expansion-panel>
             </div>
             <div class="col-lg-10 col-sm-12 mt-5">
                 <div class="container-input-search">
                     <input class="form-control search-input" type="text" placeholder="Buscar producto">
                 </div>
-                <div class="row mt-5 mb-5">
-                    <h3>Comidas rapidas</h3>
-                    <div class="col-lg-6 col-sm-12" type="button" (click)="DetailProduct(modalDetailProduct)">
+                <div class="row mt-5 mb-5" *ngFor="let product of products">
+                    <!-- <div class="col-lg-12 col-sm-12"> -->
+                    <h3>{{product._id}}</h3>
+                    <div class="col-lg-6 col-sm-12" type="button" *ngFor="let producto of product.productos" (click)="DetailProduct(modalDetailProduct)">
                         <div class="container-product d-flex shadow b-11 p-3">
                             <div class="container-info-product">
-                                <p class="product-title">Pizza 4 quesos</p>
-                                <p class="description-product">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos consequuntur doloremque illum veritatis odit omnis recusandae aspernatur error minima maxime.</p>
-                                <p class="description-product">L. 40.00</p>
+                                <p class="product-title">{{producto.name}}</p>
+                                <p class="description-product">{{producto.describe}}</p>
+                                <p class="description-product">L. {{producto.price}}</p>
                             </div>
                             <div class="container-img-product">
-                                <img class="img-product" src="https://www.saborusa.com/wp-content/uploads/2019/10/Animate-a-disfrutar-una-deliciosa-pizza-de-salchicha-Foto-destacada.png" width="150" height="150" alt="">
+                                <img class="img-product" src="{{producto.imgUrl}}" width="150" height="150" alt="">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 ">
-                        <div class="container-product d-flex shadow b-11 p-3">
-                            <div class="container-info-product">
-                                <p class="product-title">Pizza 4 quesos</p>
-                                <p class="description-product">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos consequuntur doloremque illum veritatis odit omnis recusandae aspernatur error minima maxime.</p>
-                                <p class="description-product">L. 40.00</p>
-                            </div>
-                            <div class="container-img-product">
-                                <img class="img-product" src="https://www.saborusa.com/wp-content/uploads/2019/10/Animate-a-disfrutar-una-deliciosa-pizza-de-salchicha-Foto-destacada.png" width="150" height="150" alt="">
-                            </div>
-                        </div>
+                        <!-- </div> -->
                     </div>
 
                 </div>
-                <div class="row mt-5 mb-5">
-                    <h3>Bebidas</h3>
-                    <div class="col-lg-6 col-sm-12 ">
-                        <div class="container-product d-flex shadow b-11 p-3">
-                            <div class="container-info-product">
-                                <p class="product-title">Pizza 4 quesos</p>
-                                <p class="description-product">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos consequuntur doloremque illum veritatis odit omnis recusandae aspernatur error minima maxime.</p>
-                                <p class="description-product">L. 40.00</p>
-                            </div>
-                            <div class="container-img-product">
-                                <img class="img-product" src="https://www.saborusa.com/wp-content/uploads/2019/10/Animate-a-disfrutar-una-deliciosa-pizza-de-salchicha-Foto-destacada.png" width="150" height="150" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 ">
-                        <div class="container-product d-flex shadow b-11 p-3">
-                            <div class="container-info-product">
-                                <p class="product-title">Pizza 4 quesos</p>
-                                <p class="description-product">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos consequuntur doloremque illum veritatis odit omnis recusandae aspernatur error minima maxime.</p>
-                                <p class="description-product">L. 40.00</p>
-                            </div>
-                            <div class="container-img-product">
-                                <img class="img-product" src="https://www.saborusa.com/wp-content/uploads/2019/10/Animate-a-disfrutar-una-deliciosa-pizza-de-salchicha-Foto-destacada.png" width="150" height="150" alt="">
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
             </div>
 
         </div>

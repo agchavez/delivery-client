@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CategoriesService } from '../../services/categories.service';
 
 
@@ -8,10 +8,13 @@ import { CategoriesService } from '../../services/categories.service';
   styleUrls: ['./categorie.component.css']
 })
 export class CategorieComponent implements OnInit {
+  @Output() onCategorySelected = new EventEmitter();
+  
   categories:any=[];
   cant:number=0
   offset:number=0;
-  limit:number=4
+  limit:number=4;
+  categorySelected:any={}
 
   constructor(
     private categoriesService  : CategoriesService
@@ -21,12 +24,22 @@ export class CategorieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories('')
+    this.categorySelected=localStorage.getItem('categoriaSeleccionada')
+    this.categorySelected=JSON.parse(this.categorySelected)
+
+  }
+
+  selected(id:string,name:string,imgUrl:string){
+  this.onCategorySelected.emit(id) ;
+
+    //this.catgorySelected=id;
+  //console.log('id ',this.catgorySelected)
+  localStorage.setItem('categoriaSeleccionada',JSON.stringify({"id":id,"name":name,"urlImg":imgUrl}))
+  this.categorySelected=localStorage.getItem('categoriaSeleccionada')
+  this.categorySelected=JSON.parse(this.categorySelected)
   }
 
   getCategories(position:string){
-    console.log(this.offset)
-  console.log(this.limit)
-
   if(position=='rigth'){
     this.offset=this.limit 
     this.limit+=this.limit 
@@ -47,10 +60,5 @@ export class CategorieComponent implements OnInit {
       console.log(error)
     }
   );
-
- 
-    
-  
-
   }
 }

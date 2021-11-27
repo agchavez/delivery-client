@@ -33,6 +33,11 @@
     background-color: rgb(247, 245, 245);
 }
 
+.active {
+    /* background-color: rgb(247, 245, 245); */
+    border: 1px solid orange;
+}
+
 .container-btn {
     width: 100%;
     margin-top: 154px;

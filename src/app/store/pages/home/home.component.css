@@ -7,6 +7,10 @@
     display: flex;
 }
 
+.imageCat {
+    width: 125px;
+}
+
 .form-check {
     text-align: start!important;
     padding-left: 80px!important;
@@ -39,13 +43,32 @@
 
 .imgCat {
     padding-right: 10px;
-    height: 102%;
     margin-top: auto;
+    height: 128px;
+    border-radius: 2rem;
     margin-bottom: auto;
+}
+
+.card {
+    width: auto;
 }
 
 .cards {
     display: flex;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.cat {
+    padding: 6px;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.cat:hover {
+    background-color: rgb(247, 245, 245);
 }
 
 #iconMap {
@@ -62,6 +85,11 @@
 
 .divEnvio {
     padding-top: 4px;
+}
+
+.active {
+    /* background-color: rgb(247, 245, 245); */
+    border: 1px solid orange;
 }
 
 .card {
@@ -111,6 +139,7 @@
     }
     .imageCat {
         height: 30px!important;
+        width: auto
     }
     .textCat {
         font-size: 10px!important;

@@ -79,6 +79,14 @@
     border-radius: 11px;
 }
 
+.container-info-product {
+    width: 100%;
+}
+
+.cat {
+    cursor: pointer;
+}
+
 .description-product {
     font-size: 14px;
     font-weight: 300;

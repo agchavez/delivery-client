@@ -11,5 +11,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  getCategory(id:any){
+    console.log(id)
+      }
 }
