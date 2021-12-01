@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CompaniesService } from '../../services/companies.service';
@@ -16,7 +17,8 @@ export class CompanyComponent implements OnInit {
   idCompany:string=''
   products:any=[]
   categories:any=[]
-  constructor(private modalService: NgbModal, private route: ActivatedRoute,private companiesService: CompaniesService, private productsService:ProductsService) { }
+ 
+  constructor(private modalService: NgbModal, private route: ActivatedRoute,private companiesService: CompaniesService,private fb: FormBuilder, private productsService:ProductsService) { }
   
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
