@@ -49,7 +49,7 @@
                 <div class="row mt-5 mb-5" *ngFor="let product of products">
                     <!-- <div class="col-lg-12 col-sm-12"> -->
                     <h3>{{product._id}}</h3>
-                    <div class="col-lg-6 col-sm-12" type="button" *ngFor="let producto of product.productos" (click)="DetailProduct(modalDetailProduct)">
+                    <div class="col-lg-6 col-sm-12" type="button" *ngFor="let producto of product.productos" (click)="DetailProduct(modalDetailProduct,producto)">
                         <div class="container-product d-flex shadow b-11 p-3">
                             <div class="container-info-product">
                                 <p class="product-title">{{producto.name}}</p>
@@ -57,7 +57,7 @@
                                 <p class="description-product">L. {{producto.price}}</p>
                             </div>
                             <div class="container-img-product">
-                                <img class="img-product" src="{{producto.imgUrl}}" width="150" height="150" alt="">
+                                <img class="img-product" src="{{producto.imgUrl[0]}}" width="150" height="150" alt="">
                             </div>
                         </div>
                         <!-- </div> -->
@@ -74,47 +74,58 @@
 <!-- Modal de detalle de producto-->
 <ng-template #modalDetailProduct let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Pizza 4 Quesos</h4>
+        <h4 class="modal-title" id="exampleModalLabel">{{product.name}}</h4>
         <button type="button" class="close" (click)="modal.close('Close click')">
           <img src="../../../../assets/icon/equis.png" alt="" style="height: 19px;">
         </button>
     </div>
     <div class="modal-body">
         <div class="row">
-            <div class="col-xl-6 col-sm-12">
+            <div class="col-xl-6 col-sm-12 bodyM">
                 <div>
-                    Pizza 4 quesos con orilla crujiente...
+                    {{product.describe}}
                 </div>
-                <h5 class="price">L.400</h5>
+                <h5 class="price">L.{{product.price}}</h5>
                 <div style="display: flex;">
                     <b>Cantidad </b>
-                    <input type="number" class="number">
+                    <input type="number" class="number" min="0" [(ngModel)]="cantProduct" (input)="totalProduct(cantProduct*product.price)">
                 </div>
             </div>
 
             <div class="col-xl-6 col-sm-12">
-                <img class="img-product prod modalImg" src="https://www.saborusa.com/wp-content/uploads/2019/10/Animate-a-disfrutar-una-deliciosa-pizza-de-salchicha-Foto-destacada.png" width="150" height="150" alt="">
+                <!-- <img class="img-product prod modalImg" src="https://www.saborusa.com/wp-content/uploads/2019/10/Animate-a-disfrutar-una-deliciosa-pizza-de-salchicha-Foto-destacada.png" width="150" height="150" alt=""> -->
+                <ngb-carousel>
+                    <ng-template ngbSlide *ngFor="let image of product.imgUrl">
+                        <div class="picsum-img-wrapper center">
+                            <img class="img-product prod modalImg" [src]="image" alt="Random first slide">
+                        </div>
+                    </ng-template>
+
+                </ngb-carousel>
 
             </div>
         </div>
-        <div>
+        <div style="padding-left: 10%;">
             <br>
             <br>
             <h5>Complementos</h5>
-            <div style="padding-left: 10px;">
+            <div style="padding-left: 10px;" *ngFor="let comp of product.complemts; let i=index;">
                 <div class="comple">
                     <div>
-                        <p style="margin-bottom: 0;">Pan de ajo</p>
-                        <p>(+ L.90.00)</p>
+                        <p style="margin-bottom: 0;">{{comp.name}}</p>
+                        <p>(+ L.{{comp.price}})</p>
                     </div>
-                    <input type="number" class="inpCant">
+                    <input [(ngModel)]="cantComplements[i]" min="0" (input)="total(comp.price*cantComplements[i],i)" type="number" class="inpCant"> L. <input [disabled]="true" name="money" type="text" style="width: 5%; height: 5%;" [value]="cantComplements[i]*comp.price">
+                    <!-- L.{{cantComplements[i]*comp.price}} -->
                 </div>
             </div>
+
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary btnCarrito" data-dismiss="modal">Agregar al carrito</button>
-        <h5>Precio Total: L.400.00</h5>
+        <button type="button" [disabled]="cantProduct<=0" class="btn btn-primary btnCarrito" data-dismiss="modal" (click)="agregar()">Agregar al carrito</button>
 
+        <h5>Precio Total: L.</h5><input type="text" [disabled]="true" [value]="totalMoney">
+        <!-- product.price*cantProduct -->
     </div>
 </ng-template>

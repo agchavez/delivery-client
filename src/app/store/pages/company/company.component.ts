@@ -1,9 +1,11 @@
+import { NumberSymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal,NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { CompaniesService } from '../../services/companies.service';
 import { ProductsService } from '../../services/products.service';
+
 
 @Component({
   selector: 'app-company',
@@ -17,8 +19,17 @@ export class CompanyComponent implements OnInit {
   idCompany:string=''
   products:any=[]
   categories:any=[]
- 
-  constructor(private modalService: NgbModal, private route: ActivatedRoute,private companiesService: CompaniesService,private fb: FormBuilder, private productsService:ProductsService) { }
+  product:any=[]
+  cantProduct:number=0
+  cantComplements:number[]=[]
+  moneyComplements:number[]=[]
+  totalProductMoney:number=0
+  totalMoney:number=0
+  positionsComp:number[]=[]
+  carrito:any=[]
+
+  
+  constructor(private carouselService: NgbModal,private modalService: NgbModal, private route: ActivatedRoute,private companiesService: CompaniesService,private fb: FormBuilder, private productsService:ProductsService) { }
   
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
@@ -31,6 +42,53 @@ export class CompanyComponent implements OnInit {
     this.getProducts()
   }
 
+totalProduct(money:number){
+   this.totalProductMoney=money
+   this.totalMoney=this.totalProductMoney
+
+    for(let i=0;i<this.moneyComplements.length;i++){
+      
+      this.totalMoney+=this.moneyComplements[i]
+    }
+}
+total(money:number,pos:number){
+  if(money==0){
+    this.positionsComp.splice(pos,1)
+  }
+  else{
+    this.positionsComp[pos]=pos
+
+  }
+    this.moneyComplements[pos]=money
+    console.log(this.moneyComplements)
+    console.log(pos)
+    this.totalMoney=this.totalProductMoney
+
+    for(let i=0;i<this.moneyComplements.length;i++){
+      
+      this.totalMoney+=this.moneyComplements[i]
+    }
+
+  }
+  
+agregar(){
+  var complements:any=[]
+  for(let i=0;i<this.positionsComp.length;i++){
+    complements.push(this.product.complemts[this.positionsComp[i]].name)
+  }
+  let objectPedido={
+    "company ":this.company.name,
+    "nameProduct":this.product.name,
+    "complements":complements,
+    "total":this.totalMoney
+  }
+  
+  this.carrito=localStorage.getItem('carrito')
+   this.carrito = JSON.parse(this.carrito)
+this.carrito.push(objectPedido)
+
+  localStorage.setItem('carrito',JSON.stringify(this.carrito))
+}
   getProducts(){
     this.productsService.getProductsByCompany(this.idCompany).subscribe(
       res=>{
@@ -70,10 +128,13 @@ export class CompanyComponent implements OnInit {
       }
     );
     }
-  DetailProduct(modal:any){
+  DetailProduct(modal:any,product:any){
     this.modalService.open(modal, 
-      {size:'md',
+      {size:'lg',
     })
+
+    this.product=product
+    console.log(this.product)
   }
 
   getCategory(){

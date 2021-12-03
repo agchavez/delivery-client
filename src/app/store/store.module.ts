@@ -9,6 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { SidevarComponent } from './shared/sidevar/sidevar.component';
 import { MaterialModule } from '../material/material.module';
 import { CompanyComponent } from './pages/company/company.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,17 @@ import { CompanyComponent } from './pages/company/company.component';
     HomeComponent,
     NavBarComponent,
     SidevarComponent,
-    CompanyComponent
+    CompanyComponent,
+    
   ],
   imports: [
     CommonModule,
     StoreRoutingModule,
     SharedModule,
-    MaterialModule
+    FormsModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    NgbModule
   ]
 })
 export class StoreModule {

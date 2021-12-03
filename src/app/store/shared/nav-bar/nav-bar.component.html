@@ -19,11 +19,11 @@
                 </div>
                 <div style="display: flex;" class="canast" (click)="abrirModalCarrito(modalCarrito)">
                     <img src="../../../../../assets/img/canastaIcon.png" alt="">
-                    <h6 style="padding-top: 5px;">2</h6>
+                    <h6 style="padding-top: 5px;">{{carrito.length}}</h6>
                 </div>
             </div>
             <img src="../../../../../assets/img/porfile.png" routerLink="/porfile" class="img-nav mt-0 mb-3 porfile" width="50px">
-            <h5 class="mt-0 mb-3 porfile" id="name" routerLink="/porfile">Daniela Zavala</h5>
+            <h5 class="mt-0 mb-3 porfile" id="name" routerLink="/porfile">{{name}}</h5>
         </div>
     </div>
 

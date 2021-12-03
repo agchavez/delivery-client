@@ -31,7 +31,7 @@ const httpOptions = {
     }
 
     getProductsByCompany(idCompany:string):Observable<any>{
-        const url = `${this.baseUrl}/product/${idCompany}`;
+        const url = `${this.baseUrl}/product/bycompany/${idCompany}`;
         return this.httpClient.get(url,{})
          // console.log(data)
     
@@ -39,7 +39,7 @@ const httpOptions = {
         }
 
         getProductsByCat(idCompany:string,idCat:string):Observable<any>{
-            const url = `${this.baseUrl}/product/${idCompany}/company/${idCat}`;
+            const url = `${this.baseUrl}/product/bycategory/${idCompany}/company/${idCat}`;
             return this.httpClient.get(url,{})
              // console.log(data)
         

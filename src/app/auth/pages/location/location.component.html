@@ -16,14 +16,14 @@
             <div class="container-selected mt-5">
                 <mat-form-field class="selected-basic" appearance="fill">
                     <mat-label>Municipio</mat-label>
-                    <mat-select name="food" id="municipio">
-                        <mat-option [value]="muni" *ngFor='let muni of munic'>{{muni}}</mat-option>
+                    <mat-select [(ngModel)]="latLong" name="food" id="municipio" (selectionChange)="check()">
+                        <mat-option [value]="muni" *ngFor='let muni of munic'>{{muni.name}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
             <div class="container-map" id="mapa"></div>
             <div class="container-btn mt-5">
-                <button class="btn-s my-2 my-sm-0 btn-basic" mat-raised-button [routerLink]="['../categorie']">Continuar</button>
+                <button class="btn-s my-2 my-sm-0 btn-basic" mat-raised-button [disabled]="fullRequired==false" (click)="save()" [routerLink]="['../categorie']">Continuar</button>
             </div>
         </div>
     </div>
