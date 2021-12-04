@@ -40,8 +40,8 @@
                 </mat-expansion-panel-header>
                 <div *ngFor="let producto of data.order">
                     <div class="divPro">
-                        <p><b>+{{producto.nameProduct}} x{{producto.cant}}</b> </p>
-                        <p>L.{{producto.total}}.00</p>
+                        <p><b>+{{producto.nameProduct}} x{{producto.quantity}}</b> </p>
+                        <p>L.{{producto.totalLine}}.00</p>
                     </div>
                     <p *ngFor="let comp of producto.complements">{{comp}}</p>
                 </div>

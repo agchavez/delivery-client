@@ -85,11 +85,12 @@ agregar(){
       this.product.complemts[this.positionsComp[i]].name)
   }
   let objectPedido={
+    "product":this.product.product,
     "company":this.company.name,
     "nameProduct":this.product.name,
     "complements":complements,
     "total":this.totalMoney,
-    "cant":this.cantProduct
+    "quantity":this.cantProduct
   }
   
   if(localStorage.getItem('carrito')!=null){

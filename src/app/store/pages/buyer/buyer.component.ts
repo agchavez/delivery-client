@@ -50,7 +50,7 @@ export class BuyerComponent implements OnInit {
    }
 
    for(let i=0;i<this.data.order.length;i++){
-     this.totalProd+=this.data.order[i].total
+     this.totalProd+=this.data.order[i].totalLine
    }
 
 
@@ -79,6 +79,7 @@ export class BuyerComponent implements OnInit {
     );
     }
   pagar(){
+    console.log("almacenar:",this.data)
     if(this.idCard.cvv==0){
       this.alert = {
         name: NameAlert.warnig,

@@ -123,11 +123,11 @@
                                 <div class="divNom">
                                     <div>
                                         <b>
-                                        <p>{{order.nameProduct}} x{{order.cant}}</p></b>
+                                        <p>{{order.nameProduct}} x{{order.quantity}}</p></b>
                                         <p *ngFor="let comp of order.complements">{{comp}}</p>
                                     </div>
 
-                                    <p>L. {{order.total}}.00</p>
+                                    <p>L. {{order.totalLine}}.00</p>
 
                                 </div>
                                 <br>
