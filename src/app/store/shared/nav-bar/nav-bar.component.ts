@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,19 +10,54 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class NavBarComponent implements OnInit {
   panelOpenState:boolean = true;
   name=localStorage.getItem('clientName')?.toUpperCase ()
-  carrito:any={}
+  carrito:any=[]
+  companies:any=[]
+  byCompaniesOrder:any=[]
 
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,private router:Router) { }
 
   ngOnInit(): void {
      this.getcarrito()
   }
 
+  pagar(company:any){
+    console.log(company)
+    this.modalService.dismissAll()
+    this.router.navigate(['/store/buyer',JSON.stringify(company)]);
+  }
   getcarrito(){
-  this.carrito=localStorage.getItem('carrito')
-  this.carrito=JSON.parse(this.carrito)
-  //return this.carrito
+  
+  if(this.carrito=localStorage.getItem('carrito')!=null){
+    this.carrito=localStorage.getItem('carrito')
+    this.carrito=JSON.parse(this.carrito)
+
+    // this.carrito.forEach((element: any) => {
+    //   if(this.companies.includes(element.company)==false ){
+    //    this.companies.push(element.company)
+ 
+    //   }
+ 
+    // });
+
+     this.carrito.forEach((element: any) => {
+       if(this.companies.includes(element.company)==false ){
+        this.companies.push(element.company)
+        this.byCompaniesOrder.push({"company":element.company,"order":[]})
+       }
+     });
+      
+     this.byCompaniesOrder.forEach((element:any) => {
+       for(let i=0; i<this.carrito.length;i++){
+         if(this.carrito[i].company==element.company){
+            element.order.push(this.carrito[i])
+         }
+       }
+     });
+    
+  }
+   
+   console.log('bycomp',this.byCompaniesOrder)
   }
 
   abrirModalPedido(modal:any){

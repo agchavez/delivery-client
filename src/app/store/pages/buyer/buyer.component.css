@@ -1,0 +1,48 @@
+.divPrincipal {
+    padding: 10%;
+}
+
+.container-map {
+    margin: auto;
+    margin-top: 50px;
+    width: 100%;
+    height: 298px;
+}
+
+.container-selected {
+    width: 50%;
+}
+
+.inputCVV {
+    border-radius: 2rem;
+    width: 50%;
+}
+
+.divPro {
+    display: flex;
+    justify-content: space-between;
+}
+
+.divFinish {
+    background-color: rgba(128, 128, 128, 0.367);
+    border-radius: 0.8rem;
+    padding: 10%;
+}
+
+.options {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.btnFinish {
+    margin-left: 30%;
+    color: white;
+    background-color: #DB6D0B;
+    padding-left: 56px;
+    padding-right: 65px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 0.3rem;
+    border-color: transparent;
+}

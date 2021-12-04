@@ -11,6 +11,7 @@ import { MaterialModule } from '../material/material.module';
 import { CompanyComponent } from './pages/company/company.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BuyerComponent } from './pages/buyer/buyer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavBarComponent,
     SidevarComponent,
     CompanyComponent,
+    BuyerComponent,
     
   ],
   imports: [

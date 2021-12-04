@@ -109,65 +109,41 @@
         </button>
     </div>
     <div class="modal-body">
-        <div>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title class="panel-title">
-                        <h4 id="nombreP">PizzaHut</h4>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div>
-                    <div class="divNom">
-                        <div>
-                            <b>
-                    <p>Pizza 3 quesos x1</p></b>
-                            <p>Papas medianas</p>
-                        </div>
-
-                        <p>L. 450.00</p>
-                    </div><br>
-                    <div class="divNom">
-                        <div>
-                            <b>
-                    <p>Refresco 3L  x1</p></b>
-                        </div>
-
-                        <p>L. 60.00</p>
-                    </div>
-                    <div class="botonesone">
-                        <button class="reportar btnCancelar">Cancelar</button>
-                        <button class="reportar btnPagar">Ir a Pagar</button>
-                    </div>
-                </div>
-            </mat-expansion-panel>
-
-        </div>
-        <div>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title class="panel-title">
-                        <h4 id="nombreP">La Colonia</h4>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div>
+        <div class="modal-body">
+            <div *ngFor="let company of byCompaniesOrder">
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="panel-title">
+                            <h4 id="nombreP">{{company.company}}</h4>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
                     <div>
-                        <div class="divNom">
+                        <div *ngFor="let order of company.order;">
+                            <div>
+                                <div class="divNom">
+                                    <div>
+                                        <b>
+                                        <p>{{order.nameProduct}} x{{order.cant}}</p></b>
+                                        <p *ngFor="let comp of order.complements">{{comp}}</p>
+                                    </div>
 
-                            <b><p>Pizza 3 quesos x1</p></b>
-                            <p>Papas medianas</p>
+                                    <p>L. {{order.total}}.00</p>
 
-                            <p>L. 400.00</p>
+                                </div>
+                                <br>
+                            </div>
+                            <p style="color: red;" *ngIf="company.order.length<2">Se necesitan 2 productos o mas</p>
+
                         </div>
-                        <p style="color: red;">Se necesitan 2 productos o mas.</p>
-                    </div>
-                    <div class="botonesone">
-                        <button class="reportar btnCancelar">Cancelar</button>
-                        <button class="reportar">Ir a Pagar</button>
 
+                        <div class="botonesone">
+                            <button class="reportar btnCancelar">Cancelar</button>
+                            <button *ngIf="company.order.length>=2" (click)="pagar(company)" class="reportar btnPagar">Ir a Pagar</button>
+                        </div>
                     </div>
-                </div>
-            </mat-expansion-panel>
+                </mat-expansion-panel>
 
+            </div>
         </div>
     </div>
 
