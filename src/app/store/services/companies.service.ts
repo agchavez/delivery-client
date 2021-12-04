@@ -37,6 +37,14 @@ const httpOptions = {
     
     
         }
+
+    getCompanyById(idCompany:string):Observable<any>{
+      const url = `${this.baseUrl}/company/name/${idCompany}`;
+      return this.httpClient.get(url,{})
+       // console.log(data)
+  
+  
+      }
   }
 
 

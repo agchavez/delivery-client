@@ -15,7 +15,7 @@
             <div style="display: flex;padding: 16px; padding-top: 0px;">
                 <div style="display: flex;" class="canast" (click)="abrirModalPedido(modalPedido)">
                     <img src="../../../../../assets/img/camionIcon.png" alt="">
-                    <h6 style="padding-top: 5px;">2</h6>
+                    <h6 style="padding-top: 5px;">{{ordersCompany.length}}</h6>
                 </div>
                 <div style="display: flex;" class="canast" (click)="abrirModalCarrito(modalCarrito)">
                     <img src="../../../../../assets/img/canastaIcon.png" alt="">
@@ -56,42 +56,24 @@
         </button>
     </div>
     <div class="modal-body">
-        <div>
+        <div *ngFor="let order of ordersCompany">
             <div class="divNom">
-                <h4 id="nombreP">PizzaHut</h4>
+                <h4 id="nombreP">{{order.company}}</h4>
                 <img src="../../../../assets/img/camionIcon.png" alt="" id="canasta">
             </div>
             <div class="divNom">
                 <p>Estado del pedido</p>
-                <p>En camino</p>
+                <p>{{order.status}}</p>
             </div>
             <div class="divNom">
                 <p>Id del pedido</p>
-                <p>ALKJAS6165ASD6</p>
+                <p>{{order.id}}</p>
             </div>
             <div class="divNom">
                 <p>Tiempo estimado</p>
-                <p>ALKJAS6165ASD6</p>
+                <p>1 hr</p>
             </div>
-        </div>
-        <hr>
-        <div>
-            <div class="divNom">
-                <h4 id="nombreP">La Colonia</h4>
-                <img src="../../../../assets/img/cola.png" alt="" id="canasta">
-            </div>
-            <div class="divNom">
-                <p>Estado del pedido</p>
-                <p>En cola</p>
-            </div>
-            <div class="divNom">
-                <p>Id del pedido</p>
-                <p>ALKJAS6165ASD6</p>
-            </div>
-            <div class="divNom">
-                <p>Tiempo estimado</p>
-                <p>ALKJAS6165ASD6</p>
-            </div>
+            <hr>
         </div>
     </div>
     <div class="modal-footer">

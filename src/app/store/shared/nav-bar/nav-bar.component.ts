@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { OrderService } from '../../services/order.service';
+import { CompaniesService } from '../../services/companies.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,12 +15,48 @@ export class NavBarComponent implements OnInit {
   carrito:any=[]
   companies:any=[]
   byCompaniesOrder:any=[]
+  orders:any=[]
+  idBuyer:any
+  ordersCompany:any=[]
 
-
-  constructor(private modalService: NgbModal,private router:Router) { }
+  constructor(private modalService: NgbModal,private router:Router,private orderService:OrderService,private companieService:CompaniesService) { }
 
   ngOnInit(): void {
      this.getcarrito()
+     if(localStorage.getItem('id')!=null){
+      this.idBuyer=localStorage.getItem('id')
+    this.getOrders()
+ 
+    }
+  }
+
+  //ordenes pagadas
+  getOrders(){
+    this.orderService.getOrders(this.idBuyer).subscribe(
+      res=>{
+        this.orders=res.orders
+        this.orders.forEach((element:any) => {
+          var id=element.prod[0].company
+          this.companieService.getCompanyById(id).subscribe(
+            res=>{
+              this.ordersCompany.push({
+                "id":element._id,
+                "status":element.status,
+                "company":res.name
+              })
+            }
+           
+          )
+        });
+       
+        
+    console.log("orders: ",this.ordersCompany)
+  
+      },
+      error=>{
+        console.log(error)
+      }
+    );
   }
 cancelar(companyName:string){
 var newCarrito=this.carrito.filter(function(itm:any){return itm.company!=companyName})

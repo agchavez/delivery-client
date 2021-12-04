@@ -38,5 +38,13 @@ const httpOptions = {
 
     }
 
+    getOrders(buyer:string):Observable<any>{
+        const url = `${this.baseUrl}/order/buyer/${buyer}`;
+        return this.httpClient.get(url,{})
+         // console.log(data)
+    
+    
+        }
+
 
   }
