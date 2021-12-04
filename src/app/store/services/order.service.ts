@@ -24,14 +24,15 @@ const httpOptions = {
 
     }
     
-    postOrder(token:string,orderDetail:string):Observable<any>{
+    postOrder(orderDetail:any):Observable<any>{
        
 
         console.log(orderDetail)
     const url = `${this.baseUrl}/order/`;
     const headers = new HttpHeaders()
     .set('x-token', localStorage.getItem('token') || '')
-    return this.httpClient.post(url,{orderDetail},{headers})
+    console.log({headers})
+    return this.httpClient.post(url,orderDetail,{headers})
      // console.log(data)
 
 

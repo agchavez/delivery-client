@@ -20,7 +20,14 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
      this.getcarrito()
   }
+cancelar(companyName:string){
+var newCarrito=this.carrito.filter(function(itm:any){return itm.company!=companyName})
+console.log(newCarrito)
+//localStorage.removeItem('carrito')
+   localStorage.setItem('carrito',JSON.stringify(newCarrito))
+   window.location.reload()
 
+}
   pagar(company:any){
     console.log(company)
     this.modalService.dismissAll()

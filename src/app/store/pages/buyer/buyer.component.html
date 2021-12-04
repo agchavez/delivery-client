@@ -43,7 +43,7 @@
                         <p><b>+{{producto.nameProduct}} x{{producto.quantity}}</b> </p>
                         <p>L.{{producto.totalLine}}.00</p>
                     </div>
-                    <p *ngFor="let comp of producto.complements">{{comp}}</p>
+                    <p *ngFor="let comp of producto.complements">{{comp.name}}</p>
                 </div>
             </mat-expansion-panel>
 

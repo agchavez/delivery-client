@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import * as mapboxgl from 'mapbox-gl';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -9,6 +9,7 @@ import { AlertComponent } from 'src/app/shared/components/alert/alert.component'
 import { MatDialog } from '@angular/material/dialog';
 import { AlertType, ColorAlert, NameAlert } from 'src/app/shared/interfaces/alert.interface';
 import { faExclamation } from '@fortawesome/free-solid-svg-icons';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-buyer',
@@ -28,12 +29,16 @@ export class BuyerComponent implements OnInit {
   alert!:AlertType;
   newDirection:any
   clic:number=0
-  constructor(private route:ActivatedRoute,private cardService:CardService,public  dialog: MatDialog) { }
+  carrito:any=[]
+  constructor(private route:ActivatedRoute,private cardService:CardService,public  dialog: MatDialog, private orderService:OrderService,private router:Router) { }
 
   ngOnInit(): void {
     this.latLong=localStorage.getItem('ubication')
    this.latLong=JSON.parse(this.latLong)
    this.latLong=this.latLong.muni
+   if(this.carrito=localStorage.getItem('carrito')!=null){
+    this.carrito=localStorage.getItem('carrito')
+    this.carrito=JSON.parse(this.carrito)}
    
 
 
@@ -98,13 +103,16 @@ export class BuyerComponent implements OnInit {
          //console.log(this.newDirection)
 
         let pedido ={
-          status:true,
-          orderDate:date.getDate(),
-          userBuyer:this.idBuyer,
           directionBuyer:this.newDirection
+        }
+
+        let dataPedido={
+          "orderDetails":this.data.order
+          
         }
         console.log({"long":this.latLong.long,"lat":this.latLong.lat})
         console.log(pedido.directionBuyer)
+        
 
         if(this.newDirection==null){
           this.alert = {
@@ -116,17 +124,30 @@ export class BuyerComponent implements OnInit {
           this.openDialog();
         }
         else{
-          
-         this.alert = {
-          name: NameAlert.success,
-          icon: faExclamation,
-          msj:"Gracias por su compra",
-          color: ColorAlert.success
-        }
-        this.openDialog();
-        }
+          console.log('datos a enviar',this.data.order)
 
+          this.orderService.postOrder(dataPedido).subscribe(
+            res=>{
+              this.cancelar(this.data.company)
+              console.log(res)
+              this.alert = {
+                name: NameAlert.success,
+                icon: faExclamation,
+                msj:"Gracias por su compra",
+                color: ColorAlert.success
+              }
+              this.openDialog();
+              this.router.navigate(['/store/']);
 
+            },
+            error=>{
+              console.log(error)
+            }
+          )
+         
+        }
+       
+        
       }
       else{
         this.alert = {
@@ -144,6 +165,13 @@ export class BuyerComponent implements OnInit {
   // console.log('2',this.cvv[0])
   }
 
+  cancelar(companyName:string){
+    var newCarrito=this.carrito.filter(function(itm:any){return itm.company!=companyName})
+    console.log(newCarrito)
+    //localStorage.removeItem('carrito')
+       localStorage.setItem('carrito',JSON.stringify(newCarrito))
+    
+    }
   loadMap(){
     (mapboxgl as any).accessToken = environment.mapsToken;
     const map = new mapboxgl.Map({

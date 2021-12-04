@@ -124,7 +124,7 @@
                                     <div>
                                         <b>
                                         <p>{{order.nameProduct}} x{{order.quantity}}</p></b>
-                                        <p *ngFor="let comp of order.complements">{{comp}}</p>
+                                        <p *ngFor="let comp of order.complements">{{comp.name}}</p>
                                     </div>
 
                                     <p>L. {{order.totalLine}}.00</p>
@@ -137,7 +137,7 @@
                         </div>
 
                         <div class="botonesone">
-                            <button class="reportar btnCancelar">Cancelar</button>
+                            <button class="reportar btnCancelar" (click)="cancelar(company.company)">Cancelar</button>
                             <button *ngIf="company.order.length>=2" (click)="pagar(company)" class="reportar btnPagar">Ir a Pagar</button>
                         </div>
                     </div>

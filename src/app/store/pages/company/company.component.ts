@@ -81,15 +81,20 @@ agregar(){
   
   for(let i=0;i<this.positionsComp.length;i++){
     complements.push(
+      {
+        "name":this.product.complemts[this.positionsComp[i]].name,
+        "quantity":this.cantComplements[this.positionsComp[i]],
+        "totalLine":this.product.complemts[this.positionsComp[i]].price*this.cantComplements[this.positionsComp[i]],
+      }
+    )
       
-      this.product.complemts[this.positionsComp[i]].name)
   }
   let objectPedido={
     "product":this.product.product,
     "company":this.company.name,
     "nameProduct":this.product.name,
     "complements":complements,
-    "total":this.totalMoney,
+    "totalLine":this.totalMoney,
     "quantity":this.cantProduct
   }
   
@@ -128,6 +133,7 @@ agregar(){
   window.location.reload()
   
 }
+
 openDialog(){
   this.dialog.open(AlertComponent,{
     hasBackdrop: false,
