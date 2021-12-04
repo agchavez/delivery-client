@@ -80,7 +80,9 @@ agregar(){
   var complements:any=[]
   
   for(let i=0;i<this.positionsComp.length;i++){
-    complements.push(this.product.complemts[this.positionsComp[i]].name)
+    complements.push(
+      
+      this.product.complemts[this.positionsComp[i]].name)
   }
   let objectPedido={
     "company":this.company.name,

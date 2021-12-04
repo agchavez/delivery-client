@@ -26,6 +26,8 @@ export class BuyerComponent implements OnInit {
   cvv:number[]=[]
   totalProd:number=0
   alert!:AlertType;
+  newDirection:any
+  clic:number=0
   constructor(private route:ActivatedRoute,private cardService:CardService,public  dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -88,13 +90,41 @@ export class BuyerComponent implements OnInit {
     }
     else{
       if(this.idCard.cvv==this.cvv[0]){
-        this.alert = {
+        let date=new Date
+         //console.log(pedido.directionBuyer)
+         this.newDirection=localStorage.getItem('newDirection')
+         this.newDirection=JSON.parse(this.newDirection)
+         //console.log(this.newDirection)
+
+        let pedido ={
+          status:true,
+          orderDate:date.getDate(),
+          userBuyer:this.idBuyer,
+          directionBuyer:this.newDirection
+        }
+        console.log({"long":this.latLong.long,"lat":this.latLong.lat})
+        console.log(pedido.directionBuyer)
+
+        if(this.newDirection==null){
+          this.alert = {
+            name: NameAlert.warnig,
+            icon: faExclamation,
+            msj:"Por favor, seleccione una dirección exacta para entrega",
+            color: ColorAlert.warnig
+          }
+          this.openDialog();
+        }
+        else{
+          
+         this.alert = {
           name: NameAlert.success,
           icon: faExclamation,
           msj:"Gracias por su compra",
           color: ColorAlert.success
         }
         this.openDialog();
+        }
+
 
       }
       else{
@@ -127,16 +157,17 @@ export class BuyerComponent implements OnInit {
 
   addMarker(map:any,clic:number){
     var marker:any;
-    var button;
+    var newDirection;
+    localStorage.removeItem('newDirection')
     
     map.on('click', function (e:any) {
      clic++
+     
       if(clic==1){
         console.log(e.lngLat)
-        button = document.createElement('div')
-        button.className='marker'
+        newDirection={"long":e.lngLat.lng,"lat":e.lngLat.lat}
+        localStorage.setItem('newDirection',JSON.stringify(newDirection))
        marker = new mapboxgl.Marker().setLngLat([e.lngLat.lng,e.lngLat.lat]).addTo(map);
-        
       }  
 
       else{
@@ -146,7 +177,8 @@ export class BuyerComponent implements OnInit {
         marker = new mapboxgl.Marker().setLngLat([e.lngLat.lng,e.lngLat.lat]).addTo(map);
 
       }
+      }
+      );
 
-      });
   }
 }
