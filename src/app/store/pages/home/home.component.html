@@ -87,7 +87,11 @@
             <div class="row" id="row">
                 <div class="card col-xl-3 col-sm-12" [routerLink]="['/store/company/id',{'id':companie.id}]" *ngFor="let companie of companies">
                     <div class="card-body" style="display: flex;">
-                        <img src="{{companie.imgUrl}}" height="20%" class="card-img-left imgCat" alt="..." style="padding-right: 10px;">
+                        <div>
+
+                            <img src="{{companie.imgUrl}}" height="20%" class="card-img-left imgCat" alt="..." style="margin-right: 10px;">
+                        </div>
+
 
                         <div>
                             <h5>{{companie.name}}</h5>

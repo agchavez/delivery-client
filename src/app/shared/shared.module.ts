@@ -23,7 +23,7 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     SharedRoutingModule,
     FontAwesomeModule,
-    MaterialModule
+    MaterialModule,
   ],
   exports: [
     FooterComponent,

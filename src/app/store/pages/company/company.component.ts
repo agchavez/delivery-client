@@ -130,7 +130,7 @@ agregar(){
   this.openDialog();
   
   this.modalService.dismissAll()
-  window.location.reload()
+  //window.location.reload()
   
 }
 

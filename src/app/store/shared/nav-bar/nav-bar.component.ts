@@ -18,6 +18,7 @@ export class NavBarComponent implements OnInit {
   orders:any=[]
   idBuyer:any
   ordersCompany:any=[]
+  sizeOrders:any
 
   constructor(private modalService: NgbModal,private router:Router,private orderService:OrderService,private companieService:CompaniesService) { }
 
@@ -39,15 +40,21 @@ export class NavBarComponent implements OnInit {
           var id=element.prod[0].company
           this.companieService.getCompanyById(id).subscribe(
             res=>{
-              this.ordersCompany.push({
-                "id":element._id,
-                "status":element.status,
-                "company":res.name
-              })
+              if(element.status!='cancelled'){
+                this.ordersCompany.push({
+                  "id":element._id,
+                  "status":element.status,
+                  "company":res.name
+                })
+              }
+
+              
             }
            
           )
-        });
+        }
+        );
+        this.sizeOrders=this.ordersCompany.length
        
         
     console.log("orders: ",this.ordersCompany)
@@ -106,15 +113,23 @@ console.log(newCarrito)
   }
 
   abrirModalPedido(modal:any){
+     this.orders=[]
+     this.ordersCompany=[]
     this.modalService.open(modal, 
       {size:'md',
     })
+    this.getOrders()
   }
 
   abrirModalCarrito(modal:any){
+    this.carrito=[]
+  this.byCompaniesOrder=[]
+   this.companies=[]
     this.modalService.open(modal, 
       {size:'md',
     })
+    this.getcarrito()
+
   }
 }
 

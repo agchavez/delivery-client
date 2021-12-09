@@ -44,9 +44,10 @@
 .imgCat {
     padding-right: 10px;
     margin-top: auto;
-    height: 128px;
+    height: 126px;
     border-radius: 2rem;
     margin-bottom: auto;
+    width: 126px;
 }
 
 .card {
