@@ -9,6 +9,7 @@ import { PorfileComponent } from './pages/porfile/porfile.component';
 import { CardComponent } from './pages/card/card.component';
 import { SettingComponent } from './pages/setting/setting.component';
 import { MaterialModule } from '../material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -26,6 +27,7 @@ import { MaterialModule } from '../material/material.module';
     ClientsRoutingModule,
     SharedModule,
     MaterialModule,
+    FormsModule
   ]
 })
 export class ClientsModule { }

@@ -9,6 +9,12 @@
     height: 298px;
 }
 
+.btnCarrito {
+    background-color: #DB6D0B;
+    border-color: transparent;
+    width: 46%;
+}
+
 .container-selected {
     width: 50%;
 }
