@@ -24,8 +24,11 @@ export class CategorieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories('')
-    this.categorySelected=localStorage.getItem('categoriaSeleccionada')
+    if(localStorage.getItem('categoriaSeleccionada')!=null){
+      this.categorySelected=localStorage.getItem('categoriaSeleccionada')
     this.categorySelected=JSON.parse(this.categorySelected)
+    }
+    
 
   }
 

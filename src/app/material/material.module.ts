@@ -17,6 +17,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -36,7 +37,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSelectModule,
     MatSidenavModule,
     FontAwesomeModule,
-    MatRadioModule
+    MatRadioModule,
+    MatInputModule
+    
   ]
 })
 export class MaterialModule {
