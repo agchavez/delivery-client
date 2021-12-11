@@ -31,6 +31,12 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  cerrarS(){
+    localStorage.removeItem('token')
+    localStorage.removeItem('id')
+    localStorage.removeItem('clientName')
+    this.router.navigateByUrl('/')
+  }
   //ordenes pagadas
   getOrders(){
     this.orderService.getOrders(this.idBuyer).subscribe(
