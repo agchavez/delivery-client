@@ -10,7 +10,7 @@
             <div class="container-selected">
 
                 <mat-radio-group>
-                    <mat-radio-button value="value{{i}}" (change)="idCard=card;" *ngFor="let card of cards;let i=index">
+                    <mat-radio-button value="value{{i}}" (change)="idCard=card; pos=i" *ngFor="let card of cards;let i=index">
                         <mat-expansion-panel (opened)="panelOpenState = true;" (closed)="panelOpenState = false">
                             <mat-expansion-panel-header>
                                 <mat-panel-title class="panel-title">
