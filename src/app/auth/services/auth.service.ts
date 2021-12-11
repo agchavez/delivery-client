@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
 import { catchError, map, tap} from "rxjs/operators";
 import { of } from "rxjs";
 import { LoginResponse, Client } from '../interface/interfaces';
@@ -35,6 +35,9 @@ export class AuthService {
 
                   if (resp.ok) {
                     localStorage.setItem('token', resp.token!);
+                    localStorage.setItem('id', resp.client!._id);
+                    localStorage.setItem('clientName',resp.client!.firstName+' '+resp.client!.lastName)
+
                   }
                 }),
                 map( resp => {

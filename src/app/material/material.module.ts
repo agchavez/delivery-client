@@ -16,6 +16,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [],
@@ -33,7 +36,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatStepperModule,
     MatSelectModule,
     MatSidenavModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatRadioModule,
+    MatInputModule
+    
   ]
 })
 export class MaterialModule {

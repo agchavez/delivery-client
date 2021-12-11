@@ -63,8 +63,15 @@ export class LoginComponent implements OnInit {
       console.log(resp);
 
       if (resp.ok === true) {
-          //TODO: login exitoso
+        if(localStorage.getItem('ubication')==null){
           this.router.navigate(['/auth/location']);
+
+        }
+        else{
+          this.router.navigate(['/auth/categorie']);
+
+        }
+          //TODO: login exitoso
 
       }
       else if (resp.verified === false ) {

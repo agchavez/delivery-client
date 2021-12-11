@@ -5,6 +5,15 @@
     margin-bottom: 30px;
 }
 
+.arrow {
+    cursor: pointer;
+}
+
+.left {
+    justify-content: flex-end;
+    display: flex;
+}
+
 .container {
     height: 80vh;
 }
@@ -22,6 +31,11 @@
 
 .container-categorie:hover {
     background-color: rgb(247, 245, 245);
+}
+
+.active {
+    /* background-color: rgb(247, 245, 245); */
+    border: 1px solid orange;
 }
 
 .container-btn {

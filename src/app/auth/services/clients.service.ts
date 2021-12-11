@@ -2,10 +2,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
+
 import { tap, catchError, map } from 'rxjs/operators';
 import { Client, RegisterClient } from '../interface/interfaces';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -22,16 +23,15 @@ const httpOptions = {
     constructor(private httpClient:HttpClient){
 
     }
-    
-    getClient(){
-    // const url = `${this.baseUrl}/client/all/?limit=4&offset=0`;
-    // console.log('hola')
-    
 
-    // this.httpClient.get('https://pidelow-backend-8zkq7.ondigitalocean.app/api/client/all/?limit=4&offset=0',{}).subscribe(res=>
-    //   console.log(res)
-    //   )
-    }
+    getClient(idCLient:string):Observable<any>{
+    const url = `${this.baseUrl}/client/${idCLient}`;
+
+      return this.httpClient.get(url,{})
+       // console.log(data)
+  
+  
+      }
 
     registerClient(email:string,firstName:string,lastName:string,phone:string,password:string){
     const url = `${this.baseUrl}/client/register`;

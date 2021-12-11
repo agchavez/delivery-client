@@ -1,106 +1,76 @@
-
 <div class="container">
-  <div class="row">
-
-    <div class="col-12 content animate__animated animate__fadeIn">
-      <h1 class="title-login">Restablecer contraseña</h1>
-      <mat-stepper orientation="vertical" [linear]="true" #stepper>
-      <mat-step [editable]="false" [stepControl]="lastFormGroup" >
-          <ng-template matStepLabel class="c-black">Enviar correo de verificacion</ng-template>
-          <ng-template matStepContent>
-            <p>Ingresa tu correo electronico</p>
-            <form [formGroup]="firstFormGroup">
-            <div class="input-container mt-3">
-              <input
-              type="email"
-              [ngClass]="{'invalid-form': validateCamp('email',firstFormGroup)}"
-              formControlName="email"
-              class="form-control w-100 rounded border border-dark"
-              placeholder="example@example.com"
-              >
-              <div class="mt-1 animate__animated animate__fadeIn" *ngIf="validateCamp('email',firstFormGroup)">
-                <span class="form-text text-danger mt-3"
-                >
+    <div class="row">
+        <div class="col-12 content animate__animated animate__fadeIn">
+            <h1 class="title-login">Restablecer contraseña</h1>
+            <mat-stepper orientation="vertical" [linear]="true" #stepper>
+                <mat-step [editable]="false" [stepControl]="lastFormGroup">
+                    <ng-template matStepLabel class="c-black">Enviar correo de verificacion</ng-template>
+                    <ng-template matStepContent>
+                        <p>Ingresa tu correo electronico</p>
+                        <form [formGroup]="firstFormGroup">
+                            <div class="input-container mt-3">
+                                <input type="email" [ngClass]="{'invalid-form': validateCamp('email',firstFormGroup)}" formControlName="email" class="form-control w-100 rounded border border-dark" placeholder="example@example.com">
+                                <div class="mt-1 animate__animated animate__fadeIn" *ngIf="validateCamp('email',firstFormGroup)">
+                                    <span class="form-text text-danger mt-3">
                 Correo requerido
               </span>
-            </div>
-          </div>
-        </form>
-            <div class="mt-3">
-              <p>Enviaremos un codigo de verificacion a tu correo</p>
-            </div>
-            <button class="mt-3 btn-next" (click)="sendEmail()" mat-raised-button >Enviar</button>
-            <div class="mt-3">
-                <p>¿No tienes cuenta? <span class="text-orange" [routerLink]="['../register']">Registrate</span></p>
-              </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="mt-3">
+                            <p>Enviaremos un codigo de verificacion a tu correo</p>
+                        </div>
+                        <button class="mt-3 btn-next" (click)="sendEmail()" mat-raised-button>Enviar</button>
+                        <div class="mt-3">
+                            <p>¿No tienes cuenta? <span class="text-orange" [routerLink]="['../register']">Registrate</span></p>
+                        </div>
 
-          </ng-template>
-        </mat-step>
-        <mat-step [editable]="false" [stepControl]="last2FormGroup">
-          <ng-template matStepLabel class="c-black">Verificar codigo</ng-template>
-          <ng-template matStepContent>
-            <p>Ingresa codigo de 5 digitos</p>
-            <div class="input-container mt-3">
-              <form action="" [formGroup]="codeFormGroup">
+                    </ng-template>
+                </mat-step>
+                <mat-step [editable]="false" [stepControl]="last2FormGroup">
+                    <ng-template matStepLabel class="c-black">Verificar codigo</ng-template>
+                    <ng-template matStepContent>
+                        <p>Ingresa codigo de 5 digitos</p>
+                        <div class="input-container mt-3">
+                            <form action="" [formGroup]="codeFormGroup">
 
-                <input
-                      type="number"
-                      formControlName="code"
-                      [ngClass]="{'invalid-form': validateCamp('code',codeFormGroup)}"
-                      class="form-control w-100 rounded border border-dark"
-                      placeholder="Codigo"
-                      >
-                      <div class="mt-1 animate__animated animate__fadeIn" *ngIf="validateCamp('code',codeFormGroup)">
-                        <span class="form-text text-danger mt-3"
-                           >
+                                <input type="number" formControlName="code" [ngClass]="{'invalid-form': validateCamp('code',codeFormGroup)}" class="form-control w-100 rounded border border-dark" placeholder="Codigo">
+                                <div class="mt-1 animate__animated animate__fadeIn" *ngIf="validateCamp('code',codeFormGroup)">
+                                    <span class="form-text text-danger mt-3">
                         Codigo no valido
                       </span>
-                      </div>
-              </form>
-            </div>
-            <button class="mt-3 btn-next" mat-raised-button (click)="verifiedCode()" >Verificar</button>
-            <div class="mt-3">
-                <p>¿No recibiste el codigo? <span class="text-orange" >Reenviar</span></p>
-              </div>
-          </ng-template>
-        </mat-step>
-        <mat-step [editable]="false">
-          <ng-template matStepLabel class="c-black">Cambiar contraseña</ng-template>
-          <p>Introduce una nueva contraseña para tu cuenta </p>
-          <div class="input-container mt-3">
-          <form action="" [formGroup]="passFormGroup">
-            <input
-                  type="password"
-                  [ngClass]="{'invalid-form': validateCamp('password',passFormGroup)}"
-                  class="form-control rounded border border-dark"
-                  placeholder="Nueva contrase"
-                  formControlName="password"
-                  >
-                  <div class="mt-1 animate__animated animate__fadeIn" *ngIf="validateCamp('password',passFormGroup)">
-                    <span class="form-text text-danger mt-3"
-                       >
+                                </div>
+                            </form>
+                        </div>
+                        <button class="mt-3 btn-next" mat-raised-button (click)="verifiedCode()">Verificar</button>
+                        <div class="mt-3">
+                            <p>¿No recibiste el codigo? <span class="text-orange">Reenviar</span></p>
+                        </div>
+                    </ng-template>
+                </mat-step>
+                <mat-step [editable]="false">
+                    <ng-template matStepLabel class="c-black">Cambiar contraseña</ng-template>
+                    <p>Introduce una nueva contraseña para tu cuenta </p>
+                    <div class="input-container mt-3">
+                        <form action="" [formGroup]="passFormGroup">
+                            <input type="password" [ngClass]="{'invalid-form': validateCamp('password',passFormGroup)}" class="form-control rounded border border-dark" placeholder="Nueva contrase" formControlName="password">
+                            <div class="mt-1 animate__animated animate__fadeIn" *ngIf="validateCamp('password',passFormGroup)">
+                                <span class="form-text text-danger mt-3">
                     La contraseña no es valida
                   </span>
-                  </div>
-            <input
-                  type="password"
-                  [ngClass]="{'invalid-form': validateCamp('password2',passFormGroup)}"
-                  formControlName="password2"
-                  class="form-control rounded border border-dark mt-3"
-                  placeholder="Confirmar contraseña"
-                  >
-                  <div class="mt-1" *ngIf="validateCamp('password2',passFormGroup)">
-                    <span class="form-text text-danger mt-3"
-                       >
+                            </div>
+                            <input type="password" [ngClass]="{'invalid-form': validateCamp('password2',passFormGroup)}" formControlName="password2" class="form-control rounded border border-dark mt-3" placeholder="Confirmar contraseña">
+                            <div class="mt-1" *ngIf="validateCamp('password2',passFormGroup)">
+                                <span class="form-text text-danger mt-3">
                     La contraseñas no coinciden
                   </span>
-                  </div>
-          </form>
-        </div>
-        <button class="mt-3 btn-next" mat-raised-button (click)="changePassword()">Confirmar</button>
-        </mat-step>
-      </mat-stepper>
+                            </div>
+                        </form>
+                    </div>
+                    <button class="mt-3 btn-next" mat-raised-button (click)="changePassword()">Confirmar</button>
+                </mat-step>
+            </mat-stepper>
 
+        </div>
     </div>
-  </div>
 </div>

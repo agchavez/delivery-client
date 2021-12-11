@@ -1,9 +1,11 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { AuthRoutingModule } from './auth-routing.module';
@@ -12,7 +14,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { MainComponent } from './pages/main/main.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SharedModule } from '../shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule       } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { VerifiedComponent } from './pages/verified/verified.component';
 import { ForgotComponent } from './pages/forgot/forgot.component';
@@ -41,6 +43,7 @@ import { CategorieComponent } from './pages/categorie/categorie.component';
     FontAwesomeModule,
     ReactiveFormsModule,
     SharedModule,
+    FormsModule,
   ]
   ,
   exports: [

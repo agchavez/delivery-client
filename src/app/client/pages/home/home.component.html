@@ -1,14 +1,14 @@
 <div class="mt-3 ms-3">
-  <h2>Tus datos</h2>
+    <h2>Tus datos</h2>
 </div>
 <div class="container-porfile">
-  <div class="container-img">
-    <img class="img" src="https://stickerly.pstatic.net/sticker_pack/V6WVXK2x0I7mZYhRparKeA/XFCN8T/31/c41c5fa7-7630-41c4-941f-48ef88820da6.png" alt="">
-  </div>
-  <div class="container-info">
-    <button class="btn-edit btn">Editar</button>
-    <p><b>Nombre: </b> Angel Chavez</p>
-    <p><b>Correo: </b> agchavez@unah.hn</p>
-    <p><b>Telefono: </b> 31998850</p>
-  </div>
+    <div class="container-img">
+        <img class="img" src="https://stickerly.pstatic.net/sticker_pack/V6WVXK2x0I7mZYhRparKeA/XFCN8T/31/c41c5fa7-7630-41c4-941f-48ef88820da6.png" alt="">
+    </div>
+    <div class="container-info">
+        <button class="btn-edit btn">Editar</button>
+        <p><b>Nombre: </b> {{data.firstName}} {{data.lastName}}</p>
+        <p><b>Correo: </b>{{data.email}}</p>
+        <p><b>Telefono: </b> {{data.phone}}</p>
+    </div>
 </div>

@@ -3,8 +3,13 @@
     height: 390px;
 }
 
+.bodyM {
+    padding-top: 10%;
+    padding-left: 10%
+}
+
 .prod {
-    height: 153%;
+    height: 277px;
     width: 95%;
 }
 
@@ -16,7 +21,7 @@
 
 .inpCant {
     width: 11%;
-    margin-left: auto;
+    margin-left: 65%;
     margin-bottom: 3px;
     height: 50%;
 }
@@ -77,6 +82,18 @@
 
 .img-product {
     border-radius: 11px;
+}
+
+.center {
+    text-align: center;
+}
+
+.container-info-product {
+    width: 100%;
+}
+
+.cat {
+    cursor: pointer;
 }
 
 .description-product {

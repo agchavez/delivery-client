@@ -1,22 +1,22 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
-  <div class="row">
-    <div class="col-2 menu">
-      <div class="mt-3 container-item">
-        <p  class="item-menu">Mi cuenta</p>
-      </div>
-      <div class="mt-3 container-item">
-        <p  class="item-menu">Mis tarjetas</p>
-      </div>
-      <div class="mt-3 container-item">
-        <p  class="item-menu">Configuracion</p>
-      </div>
-
-
+    <div class="row">
+        <div class="col-xl-2 col-sm-12 menu">
+            <div class="mt-3 container-item">
+                <p class="item-menu" (click)="verPerfil()">Mi cuenta</p>
+            </div>
+            <div class="mt-3 container-item">
+                <p class="item-menu" (click)="verTarjetas()">Mis tarjetas</p>
+            </div>
+            <div class="mt-3 container-item">
+                <p class="item-menu">Configuracion</p>
+            </div>
+        </div>
+        <hr>
+        <div class="col-xl-10 col-sm-12">
+            <app-home [ngClass]="{'visible':regionVisible=='perfil','invisible':regionVisible=='tarjetas'}"></app-home>
+            <app-card [ngClass]="{'visible':regionVisible=='tarjetas','invisible':regionVisible=='perfil'}"></app-card>
+        </div>
     </div>
-    <div class="col-10">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
 </div>
 <app-footer class="footer"></app-footer>
