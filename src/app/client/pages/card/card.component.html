@@ -1,1 +1,60 @@
-<p>card works!</p>
+<div id="imgCards">
+    <img src="../../../../assets/img/tarjetas.png" alt="" id="tarjetas">
+
+    <h2 id="miscards">Mis tarjetas</h2>
+
+    <div id="cards">
+        <div class="cardItem" *ngFor="let card of cards">
+
+            <div>
+                <img src="../../../../assets/img/Credit-card.png" alt="" class="imgImage">
+            </div>
+            <div class="texts">
+                <div class="textCard">
+                    {{card.number.substr(0,card.number.length-3)}}xxx
+                </div>
+                <div class="textCard" id="name">{{card.titular}}</div>
+            </div>
+            <div>
+                <button class="btnEliminar" (click)="delete(card._id)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="add" (click)="addCardModal(modalAddCard)">Agregar Tarjeta</button>
+</div>
+
+
+<!-- Modal de agregar productos-->
+<ng-template #modalAddCard let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Agregar tarjeta</h4>
+        <button type="button" class="close" (click)="modal.close('Close click')">
+          <img src="../../../../assets/icon/equis.png" alt="" style="height: 19px;">
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12 bodyM">
+
+            </div>
+
+            <div class=" col-12">
+                <input class="form-control" [(ngModel)]="number" type="text" placeholder="Número de producto">
+                <input class="form-control" [(ngModel)]="expires" type="text" placeholder="Fecha de expiración">
+                <input class="form-control" [(ngModel)]="cvv" type="text" placeholder="cvv">
+                <input class="form-control" [(ngModel)]="titular" type="text" placeholder="Titular">
+
+
+            </div>
+        </div>
+        <div style="padding-left: 10%;">
+
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" [disabled]="number==''||expires==''||cvv==0||titular==''" class="btn btn-primary btnCarrito add" data-dismiss="modal" (click)="agregar()">Guardar</button>
+
+    </div>
+</ng-template>

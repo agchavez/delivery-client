@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CategorieComponent } from 'src/app/auth/pages/categorie/categorie.component';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  @ViewChild('category') categoryComponent!:CategorieComponent;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  getCategory(id:any){
+console.log(id)
   }
 
 }

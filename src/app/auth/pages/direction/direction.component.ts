@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UbicationService } from '../../services/ubication.service';
 
 @Component({
   selector: 'app-direction',
@@ -11,5 +12,6 @@ export class DirectionComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

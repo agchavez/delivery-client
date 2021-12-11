@@ -1,41 +1,32 @@
-<nav class="navbar navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded" style="">
+<nav class="navbar navbar-light bg-light shadow-sm p-3 bg-body rounded" style="">
 
     <div class="container-fluid">
 
         <div style="display: flex;">
-            <button class="navbar-toggler" type="button" style="margin-bottom: 17px;margin-right: 10px;" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" id="btnMenu" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <img src="../../../../assets/PideLow.png" id="logo" class="img-nav mt-0 mb-3" width="124" height="22px">
+            <img src="../../../../assets/PideLow.png" id="logo" class="img-nav" width="124" height="22px">
 
             <h5 class="subtitle mb-3" routerLink="" id="inicio">Inicio</h5>
         </div>
-        <div style="display: flex;" routerLink="">
-            <div style="display: flex;padding: 16px; padding-top: 0px;">
-                <div style="display: flex;" class="canast">
-                    <img src="../../../../../assets/img/camionIcon.png" alt="" style="">
-                    <h6 style="padding-top: 5px;">2</h6>
-                </div>
-                <div style="display: flex;" class="canast">
-                    <img src="../../../../../assets/img/canastaIcon.png" alt="" style="">
-                    <h6 style="padding-top: 5px;">2</h6>
-                </div>
-            </div>
-            <img src="../../../../../assets/img/porfile.png" class="img-nav mt-0 mb-3 porfile" width="50px">
-            <h5 class="mt-0 mb-3 porfile" id="name" style="padding-top: 5px;
-            padding-left: 5px; font-weight: bold;">Daniela Zavala</h5>
-        </div>
+
     </div>
 
 
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-left: auto;font-size: larger">
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 options">
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/']">Nav 1 </a>
+                <a class="nav-link" [routerLink]="['/']">Inicio</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['']">Nav 2 </a>
+                <a class="nav-link" [routerLink]="['/porfile']">Mi cuenta </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/store/']">Categorias</a>
             </li>
         </ul>
 

@@ -1,0 +1,91 @@
+#imgCards {
+    text-align: center;
+}
+
+#miscards {
+    color: #DB6D0B;
+}
+
+.cardItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.add {
+    margin-left: 1rem;
+    background-color: #DB6D0B;
+    border: 0;
+    width: 210px;
+    height: 40px;
+    margin-top: 30px;
+    color: white;
+    padding-left: 1.9rem;
+    padding-right: 1.9rem;
+    border-radius: 0.6rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+#name {
+    padding-left: 73px;
+}
+
+.imgImage {
+    padding-right: 73px;
+}
+
+.texts {
+    display: flex;
+    border-bottom: 1px solid gray;
+}
+
+.textCard {
+    font-size: 20px;
+    color: gray;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.search-input {
+    border: 1px solid black;
+    border-radius: 12px;
+    width: 776px;
+    height: 36;
+    font-size: 18px;
+    padding-left: 10px;
+    margin: auto;
+}
+
+.btnEliminar {
+    background-color: transparent;
+    border: 1px solid #FF0000;
+    border-radius: 10px;
+    color: #FF0000;
+    margin-left: 73px;
+    margin-top: 8px;
+}
+
+@media (max-width:450px) {
+    .menu {
+        border-bottom: 1px solid gray;
+        height: 35%;
+    }
+    .btnEliminar {
+        margin-left: 6px;
+    }
+    .textCard {
+        font-size: 15px;
+    }
+    #name {
+        padding-left: 9px
+    }
+    #tarjetas {
+        width: 75%!important;
+    }
+    .imgImage {
+        padding-right: 8px;
+        width: 44px;
+    }
+}

@@ -41,7 +41,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     window.scroll(0,0);
     
-    this.clients.getClient()
   
   }
 
@@ -106,3 +105,5 @@ export class RegisterComponent implements OnInit {
   }
 
 }
+
+

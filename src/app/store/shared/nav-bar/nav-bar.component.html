@@ -1,42 +1,135 @@
 <nav class="navbar navbar-light bg-light shadow-sm p-3 bg-body rounded" style="">
 
-
     <div class="container-fluid">
-      <div style="display: flex;">
-        <app-sidevar></app-sidevar>
 
-            <img src="../../../../assets/PideLow.png" id="logo" class="img-nav mt-0 mb-3" width="124" height="22px">
+        <div style="display: flex;">
+
+            <button class="navbar-toggler" id="btnMenu" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <img src="../../../../assets/PideLow.png" id="logo" class="img-nav" width="124" height="22px">
 
             <h5 class="subtitle mb-3" routerLink="" id="inicio">Inicio</h5>
         </div>
-        <div style="display: flex;" routerLink="">
+        <div id="divrigth">
             <div style="display: flex;padding: 16px; padding-top: 0px;">
-                <div style="display: flex;" class="canast">
-                    <img src="../../../../../assets/img/camionIcon.png" alt="" style="">
-                    <h6 style="padding-top: 5px;">2</h6>
+                <div style="display: flex;" class="canast" (click)="abrirModalPedido(modalPedido)">
+                    <img src="../../../../../assets/img/camionIcon.png" alt="">
+                    <h6 style="padding-top: 5px;">{{ordersCompany.length}}</h6>
                 </div>
-                <div style="display: flex;" class="canast">
-                    <img src="../../../../../assets/img/canastaIcon.png" alt="" style="">
-                    <h6 style="padding-top: 5px;">2</h6>
+                <div style="display: flex;" class="canast" (click)="abrirModalCarrito(modalCarrito)">
+                    <img src="../../../../../assets/img/canastaIcon.png" alt="">
+                    <h6 style="padding-top: 5px;">{{carrito.length}}</h6>
                 </div>
             </div>
-            <img src="../../../../../assets/img/porfile.png" class="img-nav mt-0 mb-3 porfile" width="50px">
-            <h5 class="mt-0 mb-3 porfile" id="name" style="    padding-top: 5px;
-            padding-left: 5px; font-weight: bold;">Daniela Zavala</h5>
+            <img src="../../../../../assets/img/porfile.png" routerLink="/porfile" class="img-nav mt-0 mb-3 porfile" width="50px">
+            <h5 class="mt-0 mb-3 porfile" id="name" routerLink="/porfile">{{name}}</h5>
         </div>
     </div>
 
 
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-left: auto;font-size: larger">
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 options">
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/']">Nav 1 </a>
+                <a class="nav-link" [routerLink]="['/']">Inicio</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['']">Nav 2 </a>
+                <a class="nav-link" [routerLink]="['/porfile']">Mi cuenta </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/store/']">Categorias</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" style="cursor: pointer;">
+                <a class="nav-link" (click)="cerrarS()">Cerrar Sesión</a>
             </li>
         </ul>
 
     </div>
 </nav>
+
+
+<!-- Modal de detalle de pedido-->
+<ng-template #modalPedido let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Pedidos</h4>
+        <button type="button" class="close" (click)="modal.close('Close click')">
+          <img src="../../../../assets/icon/equis.png" alt="" style="height: 19px;">
+        </button>
+    </div>
+    <div class="modal-body">
+        <div *ngFor="let order of ordersCompany">
+            <div class="divNom">
+                <h4 id="nombreP">{{order.company}}</h4>
+                <img src="../../../../assets/img/camionIcon.png" alt="" id="canasta">
+            </div>
+            <div class="divNom">
+                <p>Estado del pedido</p>
+                <p>{{order.status}}</p>
+            </div>
+            <div class="divNom">
+                <p>Id del pedido</p>
+                <p>{{order.id}}</p>
+            </div>
+            <div class="divNom">
+                <p>Tiempo estimado</p>
+                <p>1 hr</p>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="reportar">Reportar</button>
+    </div>
+</ng-template>
+
+
+<!-- Modal de detalle de carrito de compras-->
+<ng-template #modalCarrito let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Carrito de compras</h4>
+        <button type="button" class="close" (click)="modal.close('Close click')">
+          <img src="../../../../assets/icon/equis.png" alt="" style="height: 19px;">
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-body">
+            <div *ngFor="let company of byCompaniesOrder">
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="panel-title">
+                            <h4 id="nombreP">{{company.company}}</h4>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div>
+                        <div *ngFor="let order of company.order;">
+                            <div>
+                                <div class="divNom">
+                                    <div>
+                                        <b>
+                                        <p>{{order.nameProduct}} x{{order.quantity}}</p></b>
+                                        <p *ngFor="let comp of order.complements">{{comp.name}}</p>
+                                    </div>
+
+                                    <p>L. {{order.totalLine}}.00</p>
+
+                                </div>
+                                <br>
+                            </div>
+                            <p style="color: red;" *ngIf="company.order.length<2">Se necesitan 2 productos o mas</p>
+
+                        </div>
+
+                        <div class="botonesone">
+                            <button class="reportar btnCancelar" (click)="cancelar(company.company)">Cancelar</button>
+                            <button *ngIf="company.order.length>=2" (click)="pagar(company)" class="reportar btnPagar">Ir a Pagar</button>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+
+            </div>
+        </div>
+    </div>
+
+</ng-template>

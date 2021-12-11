@@ -1,0 +1,78 @@
+<div class="divPrincipal">
+    <div class="row">
+        <div class="col-xl-6 col-sm-12">
+            <h5><b>Datos de entrega</b></h5>
+            <h6>Selecciona la dirección de entrega</h6>
+            <div class="container-map" id="mapa"></div>
+            <br>
+            <h5>Pago</h5>
+            <h6>Elija una tarjeta</h6>
+            <div class="container-selected">
+
+                <mat-radio-group>
+                    <mat-radio-button value="value{{i}}" (change)="idCard=card;" *ngFor="let card of cards;let i=index">
+                        <mat-expansion-panel (opened)="panelOpenState = true;" (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title class="panel-title">
+                                    xxxxx{{card.number.substr(card.number.length-3,card.number.length)}}
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>{{card.number}}</p>
+                            <p>Vence: {{card.expires}}</p>
+                            <input type="text" placeholder="cvv" [disabled]="idCard!=card" [(ngModel)]='cvv[i]' class="inputCVV">
+                        </mat-expansion-panel>
+                    </mat-radio-button>
+                </mat-radio-group>
+
+
+            </div>
+            <br>
+            <h5>Entrega</h5>
+            <h6>Costo: L.80</h6>
+        </div>
+        <div class="col-xl-6 col-sm-12">
+            <h5><b>Datos del pedido</b></h5>
+            <mat-expansion-panel (opened)="panelOpenState = true;" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="panel-title">
+                        <h5><b>{{data.company}}</b></h5>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div *ngFor="let producto of data.order">
+                    <div class="divPro">
+                        <p><b>+{{producto.nameProduct}} x{{producto.quantity}}</b> </p>
+                        <p>L.{{producto.totalLine}}.00</p>
+                    </div>
+                    <p *ngFor="let comp of producto.complements">{{comp.name}}</p>
+                </div>
+            </mat-expansion-panel>
+
+            <br><br>
+            <div class="divFinish">
+                <h5>Finalizar Pedidos</h5>
+                <br>
+                <div class="options">
+                    <h5>Total Productos</h5>
+                    <h6>L.{{totalProd}}.00</h6>
+                </div>
+                <div class="options">
+                    <h5>Costo Envío</h5>
+                    <h6>L.80.00</h6>
+                </div>
+                <div class="options">
+                    <h5>Comisión</h5>
+                    <h6>L.8.00</h6>
+                </div>
+                <br><br><br>
+                <h5><b>Total a pagar:L.{{totalProd+80+8}}.00</b></h5>
+
+                <button (click)="pagar()" class="btnFinish">Pagar</button>
+
+            </div>
+
+        </div>
+        <br>
+
+    </div>
+
+</div>
