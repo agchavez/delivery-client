@@ -17,7 +17,7 @@ export class CardComponent implements OnInit {
   numberXX:any
   number:string=''
   titular:string=''
-  cvv:number=0
+  cvv:any
   expires:string=''
 
   alert!:AlertType;
@@ -62,7 +62,7 @@ openDialog(){
         "number":this.number,
         "expires":this.expires,
         "buyer":this.idBuyer,
-        "cvv":this.number,
+        "cvv":this.cvv,
         "titular":this.titular
       }
         this.cardService.postCard(data).subscribe(

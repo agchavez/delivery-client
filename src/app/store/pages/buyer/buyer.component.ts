@@ -29,6 +29,7 @@ export class BuyerComponent implements OnInit {
   alert!:AlertType;
   newDirection:any
   clic:number=0
+  pos:any
   carrito:any=[]
   constructor(private route:ActivatedRoute,private cardService:CardService,public  dialog: MatDialog, private orderService:OrderService,private router:Router) { }
 
@@ -84,7 +85,7 @@ export class BuyerComponent implements OnInit {
     );
     }
   pagar(){
-    console.log("almacenar:",this.data)
+    console.log("almacenar:",this.cvv)
     if(this.idCard.cvv==0){
       this.alert = {
         name: NameAlert.warnig,
@@ -95,7 +96,7 @@ export class BuyerComponent implements OnInit {
       this.openDialog();
     }
     else{
-      if(this.idCard.cvv==this.cvv[0]){
+      if(this.idCard.cvv==this.cvv[this.pos]){
         let date=new Date
          //console.log(pedido.directionBuyer)
          this.newDirection=localStorage.getItem('newDirection')

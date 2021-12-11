@@ -79,16 +79,19 @@ total(money:number,pos:number){
 agregar(){
   var complements:any=[]
   
-  for(let i=0;i<this.positionsComp.length;i++){
-    complements.push(
-      {
-        "name":this.product.complemts[this.positionsComp[i]].name,
-        "quantity":this.cantComplements[this.positionsComp[i]],
-        "totalLine":this.product.complemts[this.positionsComp[i]].price*this.cantComplements[this.positionsComp[i]],
+    if(this.positionsComp.length!=0){
+      for(let i=0;i<this.positionsComp.length;i++){
+        complements.push(
+          {
+            "name":this.product.complemts[this.positionsComp[i]].name,
+            "quantity":this.cantComplements[this.positionsComp[i]],
+            "totalLine":this.product.complemts[this.positionsComp[i]].price*this.cantComplements[this.positionsComp[i]],
+          }
+        )
+          
       }
-    )
-      
-  }
+    }
+
   let objectPedido={
     "product":this.product.product,
     "company":this.company.name,
